@@ -1,0 +1,115 @@
+.sidebar {
+	background-color: $guyn-IceLight;
+	color: $guyn-Plum;
+	padding: 1rem;
+	&__toggle {
+		position: fixed;
+	}
+	&__group {
+	}
+
+	&__subgroup {
+		position: relative;
+		&::before {
+			opacity: 0;
+			border-radius: $base-border-radius;
+			background-color: $guyn-White;
+			position: absolute;
+			content: "";
+			left: -0.5rem;
+			top: -0.5rem;
+			width: calc(100% + 1rem);
+			height: calc(100% + 1rem);
+			display: block;
+			transform: scale(0.5);
+			transition: all $base-transition-bounce;
+		}
+		&--has-active,
+		&--open {
+			&::before {
+				transform: scale(1);
+				opacity: 1;
+			}
+		}
+	}
+	&__heading {
+		// opacity: 0.5;
+		// text-transform: uppercase;
+		// letter-spacing: 1px;
+		font-size: 1.25rem;
+		position: relative;
+		z-index: 2;
+	}
+	&__subheading {
+		opacity: 0.25;
+		padding: 0.5rem;
+		display: block;
+		font-weight: bold;
+		font-size: 0.875rem;
+		text-transform: uppercase;
+		&--active {
+			opacity: 0.5;
+		}
+	}
+	&__link {
+		display: block;
+		border-radius: 0.25rem;
+		padding: 0.5rem;
+		position: relative;
+		z-index: 1;
+		&::before {
+			opacity: 0;
+			border-radius: $base-border-radius;
+			background-color: $guyn-White;
+			position: absolute;
+			content: "";
+			z-index: -1;
+			left: -0.25rem;
+			top: -0.25rem;
+			width: calc(100% + 0.5rem);
+			height: calc(100% + 0.5rem);
+			display: block;
+			transform: scale(0.5);
+			transition: all $base-transition-bounce;
+			background-color: lighten($guyn-Plum, 70%);
+			color: $guyn-Plum;
+		}
+		&.active {
+			font-weight: bold;
+			&::before {
+				transform: scale(1);
+				opacity: 1;
+			}
+		}
+	}
+	&__list {
+		padding: 1rem;
+		// border: 1px solid red;
+	}
+	&__sublist {
+		// padding: 1rem;
+		// border: 1px solid blue;
+	}
+	&__item {
+		display: block;
+		&--open {
+			&.sidebar__item--depth-0 {
+				background-color: $guyn-Yellow;
+			}
+		}
+		&--depth-0 {
+			& + .sidebar__item {
+				margin-top: 2rem;
+			}
+		}
+		&--has-children {
+			& + .sidebar__item {
+				margin-top: 1rem;
+			}
+		}
+	}
+	a {
+		text-decoration: none;
+		color: inherit;
+	}
+}

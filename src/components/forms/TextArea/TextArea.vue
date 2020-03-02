@@ -1,0 +1,65 @@
+<template>
+	<Field type="textarea">
+		<textarea
+			:id="ID"
+			class="input-field__textarea"
+			type="text"
+			:placeholder="placeholder"
+			@focus="focus = true"
+			@blur="focus = false"
+		/>
+		<label v-if="label" class="input-field__label" :for="ID">{{ label }}</label>
+	</Field>
+</template>
+<script>
+import Field from "../Field";
+import InputBase from "../InputBase";
+import { DefaultProps, TextProps } from "../props";
+export default {
+	components: {
+		Field
+	},
+	extends: InputBase,
+	props: {
+		...DefaultProps,
+		...TextProps
+	}
+};
+</script>
+
+<style lang="scss">
+@import "base";
+.input-field--textarea {
+	display: flex;
+	flex-direction: column-reverse;
+	justify-content: start;
+	.input-field {
+		&__textarea {
+			border: $base-form-border;
+			border-radius: $base-form-border-radius;
+			background-color: transparent;
+			color: currentColor;
+			font-size: 1em;
+			line-height: 1.5;
+			padding: 0.5em;
+			& + .input-field__label {
+				margin-bottom: 1em;
+			}
+			&:focus {
+				outline: none;
+				box-shadow: 0 0 0 3px $base-form-highlight;
+			}
+			&::placeholder {
+				color: currentColor;
+				font-style: italic;
+				opacity: 0.5;
+			}
+			&:placeholder-shown {
+				opacity: 0.5;
+			}
+		}
+		&__label {
+		}
+	}
+}
+</style>

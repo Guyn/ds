@@ -1,0 +1,19 @@
+h1,
+h2,
+h3,
+h4,
+h5 {
+	position: relative;
+	.header-anchor {
+		position: absolute;
+		top: 50%;
+		right: 100%;
+		font-size: 1rem;
+		text-decoration: none;
+		color: inherit;
+		opacity: 0.5;
+		transform: translateY(-50%);
+		font-weight: normal;
+		color: $base-primary-color;
+	}
+}

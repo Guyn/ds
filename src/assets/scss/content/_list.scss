@@ -1,0 +1,9 @@
+ol,
+ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+ol:not([class]),
+ul:not([class]) {
+}

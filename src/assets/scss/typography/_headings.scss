@@ -1,0 +1,51 @@
+.title {
+	&--h1 {
+		font-size: 64px;
+		font-weight: bold;
+	}
+	&--h2 {
+		font-size: 48px;
+		font-weight: bold;
+	}
+	&--h3 {
+		font-size: 32px;
+		font-weight: bold;
+	}
+	&--h4 {
+		font-size: 24px;
+		font-weight: bold;
+	}
+	&--h5 {
+		font-size: 16px;
+		font-weight: bold;
+	}
+	&--h6 {
+		font-size: 14px;
+		text-transform: uppercase;
+		font-weight: bold;
+	}
+}
+
+h1:not([class]) {
+	@extend .title--h1;
+}
+
+h2:not([class]) {
+	@extend .title--h2;
+}
+
+h3:not([class]) {
+	@extend .title--h3;
+}
+
+h4:not([class]) {
+	@extend .title--h4;
+}
+
+h5:not([class]) {
+	@extend .title--h5;
+}
+
+h6:not([class]) {
+	@extend .title--h6;
+}

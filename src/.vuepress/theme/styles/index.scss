@@ -1,0 +1,37 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+}
+
+@import "../../../../src/assets/scss/global.scss";
+@import "sidebar";
+@import "page";
+@import "page-nav";
+@import "typography";
+
+h1,
+h2,
+h3,
+h4 {
+	& + .example {
+		margin-top: 1em;
+	}
+}
+.button {
+	& + h1,
+	& + h2,
+	& + h3,
+	& + h4 {
+		margin-top: 2em;
+	}
+}
+
+.example {
+	& + h2,
+	& + h3,
+	& + h4,
+	& + .button {
+		margin-top: 1em;
+	}
+}
