@@ -1,0 +1,18 @@
+@import "base";
+.notification {
+	--notification-color: #{$base-notification-color};
+	padding: 1em;
+	&__title {
+		color: var(--notification-color);
+	}
+	&--warning {
+		--notification-color: #{$base-warning-color};
+	}
+	&--error {
+		--notification-color: #{$base-error-color};
+	}
+	&--success {
+		--notification-color: #{$base-success-color};
+	}
+	box-shadow: 0 -0.5em 0 0 var(--notification-color) inset;
+}

@@ -1,5 +1,6 @@
 .sidebar {
-	background-color: $guyn-IceLight;
+	background-color: white;
+	border-right: 1px solid $guyn-IceLight;
 	color: $guyn-Plum;
 	padding: 1rem;
 	&__toggle {
@@ -14,6 +15,7 @@
 			opacity: 0;
 			border-radius: $base-border-radius;
 			background-color: $guyn-White;
+			box-shadow: 0 0 0 1px $guyn-Ice;
 			position: absolute;
 			content: "";
 			left: -0.5rem;

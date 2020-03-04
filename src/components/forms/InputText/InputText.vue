@@ -1,5 +1,5 @@
 <template>
-	<Field type="text" :instructions="instructions">
+	<Field type="text" :instructions="instructions" :focus="focus">
 		<input
 			:id="ID"
 			class="input-field__input"
@@ -27,39 +27,4 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import "base";
-.input-field--text {
-	display: flex;
-	flex-direction: column-reverse;
-	justify-content: start;
-	.input-field {
-		&__input {
-			border: $base-form-border;
-			border-radius: $base-border-radius;
-			background-color: transparent;
-			color: currentColor;
-			font-size: 1em;
-			line-height: 1.5;
-			padding: 0.5em;
-			& + .input-field__label {
-				margin-bottom: 1em;
-			}
-			&:focus {
-				outline: none;
-				box-shadow: 0 0 0 3px $base-form-highlight;
-			}
-			&::placeholder {
-				color: currentColor;
-				font-style: italic;
-				opacity: 0.5;
-			}
-			&:placeholder-shown {
-				opacity: 0.5;
-			}
-		}
-		&__label {
-		}
-	}
-}
-</style>
+<style lang="scss" src="./InputText.scss" />

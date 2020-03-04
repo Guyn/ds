@@ -15,3 +15,8 @@ $base-light-color: $guyn-Ice;
 $base-form-border: 1px solid currentColor !default;
 $base-form-border-radius: $base-border-radius !default;
 $base-form-highlight: rgba($base-primary-color, 0.35);
+
+$base-notification-color: $guyn-Skyblue !default;
+$base-warning-color: $guyn-Orange;
+$base-error-color: $guyn-Red;
+$base-success-color: $guyn-Green;

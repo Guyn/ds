@@ -68,6 +68,8 @@ module.exports = {
 	},
 	alias: {
 		base: path.resolve(__dirname, "../assets/scss/base.scss"),
+		style: path.resolve(__dirname, "../assets/scss/"),
+		"@": path.resolve(__dirname, "../"),
 		components: path.resolve(__dirname, "../components")
 	}
 };

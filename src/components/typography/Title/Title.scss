@@ -1,0 +1,15 @@
+@import "base";
+
+.text {
+	border: 1px solid red;
+}
+.title {
+	@each $color-name, $color-value in $colors {
+		&--#{to-lower-case($color-name)} {
+			color: $color-value;
+		}
+	}
+}
+.color--current {
+	color: currentColor;
+}

@@ -1,6 +1,7 @@
 <script>
 export default {
 	data: () => ({
+		focus: false,
 		ID: null
 	}),
 	created() {
@@ -18,3 +19,5 @@ export default {
 	}
 };
 </script>
+
+<style lang="scss" src="./InputBase.scss" />

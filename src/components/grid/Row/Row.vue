@@ -8,8 +8,4 @@
 export default {};
 </script>
 
-<style lang="scss" scoped>
-.row {
-	border: 1px solid red;
-}
-</style>
+<style lang="scss" src="./Row.scss" />

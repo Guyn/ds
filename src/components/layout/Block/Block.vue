@@ -6,8 +6,4 @@
 export default {};
 </script>
 
-<style lang="scss" scoped>
-.block {
-	border: 1px solid red;
-}
-</style>
+<style lang="scss" src="./Block.scss" />

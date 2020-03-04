@@ -1,5 +1,5 @@
 <template>
-	<Field type="select" :instructions="instructions">
+	<Field type="select" :instructions="instructions" :focus="focus">
 		<div class="input-field__select" :class="{ 'input-field--focus': focus }">
 			<select
 				:id="ID"
@@ -19,7 +19,7 @@
 				<option>Test</option>
 			</select>
 		</div>
-		<label :for="ID">
+		<label class="input-field__label" :for="ID">
 			<span class="input-field__text" v-html="label"></span>
 			<slot></slot>
 		</label>
@@ -44,30 +44,4 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import "base";
-.input-field--select {
-}
-.input-field {
-	&__select {
-		border-radius: $base-form-border-radius;
-		border: $base-form-border;
-		padding: 0.5em;
-		select {
-			border: none;
-			width: 100%;
-			height: 100%;
-
-			padding: 0.5em;
-			line-height: 1;
-			font-size: 1em;
-			-webkit-appearance: none;
-			border-radius: $base-form-border-radius;
-			&:focus {
-				outline: none;
-				box-shadow: 0 0 0 3px $base-form-highlight;
-			}
-		}
-	}
-}
-</style>
+<style lang="scss" src="./Select.scss" />

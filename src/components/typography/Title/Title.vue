@@ -40,20 +40,4 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import "base";
-
-.text {
-	border: 1px solid red;
-}
-.title {
-	@each $color-name, $color-value in $colors {
-		&--#{to-lower-case($color-name)} {
-			color: $color-value;
-		}
-	}
-}
-.color--current {
-	color: currentColor;
-}
-</style>
+<style lang="scss" src="./Title.scss"></style>

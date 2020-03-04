@@ -1,5 +1,6 @@
 .page-nav {
 	// border: 1px solid $guyn-Red;
+	padding: calc(100vw / 24);
 	&__container {
 		display: flex;
 		justify-content: space-between;

@@ -146,11 +146,14 @@ export default {
 		"header header"
 		"sidebar page"
 		"footer footer";
+	min-height: 100vh;
 
 	.sidebar {
+		min-height: 100vh;
 		grid-area: sidebar;
 	}
 	.page {
+		min-height: 100vh;
 		grid-area: page;
 	}
 }

@@ -11,7 +11,9 @@ import { terser } from "rollup-plugin-terser";
 import copy from "rollup-plugin-copy";
 
 import pkg from "./package.json";
+import path from "path";
 
+console.log(path.resolve(__dirname, "/src/assets/scss/base.scss"));
 export default {
   input: "src/components/index.js",
   output: [
@@ -37,12 +39,20 @@ export default {
     //   rollupCommonJSResolveHack: true,
     //   clean: true
     // }),
+    // resolve: ["", ".vue", ".scss"],
+    // entries: [
+    //   {
+    //     find: "base",
+    //     replacement: path.resolve(__dirname, "src/assets/scss/base.scss")
+    //   }
+    // ]
     alias({
-      entries: {
-        "@components": "./src/components/",
-        "@assets": "./src/assets/",
-        "@styles": "./src/assets/scss/"
-      }
+      entries: [
+        {
+          find: "base",
+          replace: path.resolve(__dirname, "/src/assets/scss/base.scss")
+        }
+      ]
     }),
     resolve(),
     postcss({

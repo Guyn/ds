@@ -6,8 +6,4 @@
 export default {};
 </script>
 
-<style lang="scss" scoped>
-.panel {
-	border: 1px solid red;
-}
-</style>
+<style lang="scss" src="./Panel.scss" />

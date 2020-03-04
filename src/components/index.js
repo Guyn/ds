@@ -8,7 +8,7 @@ export { default as Notification } from "./general/Notification";
 export { default as Checkbox } from "./forms/Checkbox";
 export { default as Radio } from "./forms/Radio";
 export { default as Select } from "./forms/Select";
-export { default as TextInput } from "./forms/TextField";
+export { default as InputText } from "./forms/InputText";
 export { default as TextArea } from "./forms/TextArea";
 
 // Layout Blocks
