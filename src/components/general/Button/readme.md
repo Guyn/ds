@@ -8,12 +8,12 @@ export default {
 
 #### Props
 
-| prop | default | description |
-| --- | --- | --- |
-| link | null | Either an outgoing link or a Route link.|
-| color | null | Any main color defined by Guyn |
-| icon | null | Name of an icon, which will be placed in the button |
-| secondary | false | Is the button secondary? |
+| prop      | default | description                                         |
+| --------- | ------- | --------------------------------------------------- |
+| link      | null    | Either an outgoing link or a Route link.            |
+| color     | null    | Any main color defined by Guyn                      |
+| icon      | null    | Name of an icon, which will be placed in the button |
+| secondary | false   | Is the button secondary?                            |
 
 #### Default
 
@@ -68,6 +68,32 @@ The button can be colored in any color provided. By default these are all Guyn c
         <td>Purple</td>
         <td><Button color="purple">Hoiii</Button></td>
         <td><Button secondary color="purple" >Hoiii</Button></td>
+    </tr>
+</table>
+</Example>
+
+#### Disabled button
+
+A disabled button can not be clicked and can be set by adding `disabled` to the button. The disabled button is automatically greyed out and unclickable.
+
+<Example title="Colors">
+<table>
+    <thead>
+    <tr>
+        <th></th>
+        <th>Normal</th>
+        <th>Disabled</th>
+    </tr>
+    </thead>
+    <tr>
+        <td>Red</td>
+        <td><Button color="red">Hoiii</Button></td>
+        <td><Button  color="red" disabled>Hoiii</Button></td>
+    </tr>
+    <tr>
+        <td>Blue secondary</td>
+        <td><Button color="blue" secondary>Hoiii</Button></td>
+        <td><Button  color="blue" secondary disabled>Hoiii</Button></td>
     </tr>
 </table>
 </Example>

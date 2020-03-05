@@ -53,8 +53,12 @@ $base-transition: 0.5s;
 	&__text {
 		position: relative;
 		z-index: 2;
-    }
-    &[disabled]{filter:grayscale(100%); opacity: 0.75};
+	}
+	&[disabled] {
+		filter: grayscale(100%);
+		opacity: 0.5;
+		pointer-events: none;
+	}
 	&:hover {
 		.button__text {
 			animation: bumpInOut $base-transition $base-transition-bounce forwards;
