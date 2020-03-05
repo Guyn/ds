@@ -1,6 +1,6 @@
 <template>
 	<aside class="sidebar">
-		<H1>Guyn</H1>
+		<Logo />
 		<NavLinks />
 		<slot name="top" />
 
@@ -12,11 +12,12 @@
 <script>
 import SidebarLinks from "@theme/components/SidebarLinks.vue";
 import NavLinks from "@theme/components/NavLinks.vue";
+import Logo from "../../components/Logo.vue";
 
 export default {
 	name: "Sidebar",
 
-	components: { SidebarLinks, NavLinks },
+	components: { Logo, SidebarLinks, NavLinks },
 
 	props: ["items"]
 };

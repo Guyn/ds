@@ -43,7 +43,7 @@ export default {
 		grid-area: side;
 		background-color: $base-dark-color;
 	}
-	&__content{
+	&__content {
 		max-width: 720px;
 		margin: auto;
 	}

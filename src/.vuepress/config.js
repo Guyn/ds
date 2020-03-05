@@ -5,6 +5,12 @@ module.exports = {
 	themeConfig: {
 		sidebar: [
 			{
+				title: "General", // required
+				collapsable: false,
+				sidebarDepth: 2,
+				children: ["page/usage/", "page/about/"]
+			},
+			{
 				title: "Assets", // required
 				path: "/assets/",
 				collapsable: false,
@@ -69,8 +75,6 @@ module.exports = {
 	},
 	alias: {
 		base: path.resolve(__dirname, "../assets/scss/base.scss"),
-		style: path.resolve(__dirname, "../assets/scss/"),
-		"@": path.resolve(__dirname, "../"),
 		components: path.resolve(__dirname, "../components")
 	}
 };

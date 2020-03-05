@@ -13,14 +13,14 @@
 			line-height: 1.5;
 			padding: 0.75em;
 			& + .input-field__label {
-				margin-bottom: .5em;
+				margin-bottom: 0.5em;
 			}
 			&:focus {
 				outline: none;
 				box-shadow: 0 0 0 3px $base-form-highlight;
-                & + .input-field__label{
-  color:                  $base-primary-color;
-                }
+				& + .input-field__label {
+					color: $base-primary-color;
+				}
 			}
 			&::placeholder {
 				color: currentColor;
@@ -28,10 +28,10 @@
 				opacity: 0.5;
 			}
 			&:placeholder-shown {
-                opacity: 0.5;
-                & + .input-field__label{
-                    opacity: 0.5;
-                }
+				opacity: 0.5;
+				& + .input-field__label {
+					opacity: 0.5;
+				}
 			}
 		}
 		&__label {

@@ -9,11 +9,20 @@ import postcss from "rollup-plugin-postcss";
 import commonjs from "@rollup/plugin-commonjs";
 import { terser } from "rollup-plugin-terser";
 import copy from "rollup-plugin-copy";
+import includePaths from "rollup-plugin-includepaths";
 
 import pkg from "./package.json";
 import path from "path";
 
 console.log(path.resolve(__dirname, "/src/assets/scss/base.scss"));
+
+const includePathOptions = {
+  include: {},
+  paths: ["src", "src/components/", "src/assets/", "src/assets/scss"],
+  external: [],
+  extensions: [".js", ".svg", ".vue", ".scss", ".css"]
+};
+
 export default {
   input: "src/components/index.js",
   output: [
@@ -35,26 +44,16 @@ export default {
     external(),
     url(),
     svgr(),
-    // typescript({
-    //   rollupCommonJSResolveHack: true,
-    //   clean: true
-    // }),
-    // resolve: ["", ".vue", ".scss"],
-    // entries: [
-    //   {
-    //     find: "base",
-    //     replacement: path.resolve(__dirname, "src/assets/scss/base.scss")
-    //   }
-    // ]
+    includePaths(includePathOptions),
+    resolve(),
     alias({
       entries: [
         {
-          find: "base",
-          replace: path.resolve(__dirname, "/src/assets/scss/base.scss")
+          find: "@style",
+          replacement: path.resolve(__dirname, "src/assets/scss/")
         }
       ]
     }),
-    resolve(),
     postcss({
       extract: false
     }),
