@@ -61,19 +61,7 @@ $named-sizes: (
 	"three-quarter": 3/4
 );
 
-%column {
-	padding: 1rem;
-	background-color: rgba(0, 0, 0, 0.25);
-	color: white;
-	border-radius: 1rem;
-	&.margin {
-		border-radius: 0.5rem;
-		margin: 10px;
-	}
-}
-
 .row {
-	padding: 10px;
 	width: 100%;
 	margin: auto;
 	display: grid;
@@ -81,18 +69,17 @@ $named-sizes: (
 	grid-column-gap: var(--column-gap, var(--gap, default-value("grid-gap", 0)));
 	grid-row-gap: var(--row-gap, var(--gap, default-value("grid-gap", 0)));
 	grid-template-columns: repeat(
-		var(--gap, default-value("grid-rows", 24)),
+		var(--rows, default-value("grid-rows", 24)),
 		1fr
 	);
 	grid-template-rows: auto;
 	> .column {
-		@extend %column;
 		grid-column: span #{$grid-parts};
 		@each $bp-name, $bp-values in $mq {
 			&.#{$bp-name} {
 				@media #{mq($bp-name,up)} {
 					@each $size-name, $size-value in $named-sizes {
-						&-#{$size-name} {
+						&--#{$size-name} {
 							grid-column: span #{($grid-parts * $size-value)};
 						}
 					}

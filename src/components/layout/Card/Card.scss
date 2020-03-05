@@ -1,3 +1,56 @@
+@import "base";
 .card {
-	border: 1px solid red;
+	border-radius: var(--card-border-radius, #{$base-border-radius});
+	overflow: hidden;
+	position: relative;
+	display: block;
+	background-color: var(--card-background-color, $guyn-White);
+	box-shadow: 0 0 2em 0 rgba(0, 0, 0, 0.1);
+	text-decoration: none;
+	color: inherit;
+	transition: background $base-transition;
+	&__image {
+		position: relative;
+		display: block;
+		width: 100%;
+		height: 0;
+		padding-bottom: var(--card-image-height, 50%);
+		overflow: hidden;
+		&-element {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			left: 0;
+			top: 0;
+			object-fit: cover;
+			transition: transform $base-transition;
+		}
+	}
+	&__content {
+		display: block;
+		padding: 1em;
+	}
+	&__title {
+		color: var(--card-title-color, #{$base-primary-color});
+	}
+	@each $color-name, $color-value in $colors {
+		&--#{to-lower-case($color-name)} {
+			background-color: setLightness($color-value, 80);
+			.card__title {
+				color: setLightness($color-value, 20);
+			}
+			&.card--is-link:hover {
+				background-color: setLightness($color-value, 85);
+			}
+		}
+	}
+	&--is-link {
+		&:hover {
+			.card__image {
+				&-element {
+					transform: scale(1.05);
+				}
+			}
+		}
+	}
 }

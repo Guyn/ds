@@ -3,10 +3,19 @@
 export default {
 	computed: {
 		gridClasses() {
-			return ["kudt"];
+			let classes = [];
+			if (this.$props.size) classes.push(`small--${this.$props.size}`);
+			if (this.$props.small) classes.push(`small--${this.$props.small}`);
+			if (this.$props.medium) classes.push(`medium--${this.$props.medium}`);
+			if (this.$props.large) classes.push(`large--${this.$props.large}`);
+			return classes;
 		}
 	},
 	props: {
+		size: {
+			type: String,
+			default: null
+		},
 		small: {
 			type: String,
 			default: null

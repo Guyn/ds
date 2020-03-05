@@ -8,12 +8,12 @@ export default {
 
 #### Props
 
-| prop      | default | description                                         |
-| --------- | ------- | --------------------------------------------------- |
-| link      | null    | Either an outgoing link or a Route link.            |
-| color     | null    | Any main color defined by Guyn                      |
-| icon      | null    | Name of an icon, which will be placed in the button |
-| secondary | false   | Is the button secondary?                            |
+| prop        | default | description                                         |
+| ----------- | ------- | --------------------------------------------------- |
+| `link`      | null    | Either an outgoing link or a Route link.            |
+| `color`     | null    | Any main color defined by Guyn                      |
+| `icon`      | null    | Name of an icon, which will be placed in the button |
+| `secondary` | false   | Is the button secondary?                            |
 
 #### Default
 

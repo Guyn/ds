@@ -13,8 +13,8 @@ export default {
 		}
 	},
 	mounted() {
-		console.log(this.$slots.default[0]);
-		console.log(this.$slots.default);
+		// console.log(this.$slots.default[0]);
+		// console.log(this.$slots.default);
 	}
 };
 </script>
@@ -49,9 +49,10 @@ export default {
 		background-color: $guyn-PlumDark;
 		color: white;
 	}
-	table{
+	table {
 		width: 100%;
-		td,th{
+		td,
+		th {
 			padding: 1em;
 			text-align: left;
 		}
