@@ -15,34 +15,34 @@ A default button will use the primary defined colors.
 <p>The text to back this up.</p>
 </Notification>
 
-
 <template slot="code">
 
 ```html
 <Notification>
-    <h4>Hi! Check this..</h4>
-    <p>The text to back this up.</p>
+	<h4>Hi! Check this..</h4>
+	<p>The text to back this up.</p>
 </Notification>
 ```
+
 </template>
 
 </Example>
 
 <Example title="Error">
 <Notification type="error">
-    <h4>An error</h4>
-    <p>Ah oh, something went wrong! Please blabla...</p>
+<h4>An error</h4>
+<p>Ah oh, something went wrong! Please blabla...</p>
 </Notification>
-
 
 <template slot="code">
 
 ```html
 <Notification type="error">
-    <h4>An error</h4>
-    <p>Ah oh, something went wrong! Please blabla...</p>
+	<h4>An error</h4>
+	<p>Ah oh, something went wrong! Please blabla...</p>
 </Notification>
 ```
+
 </template>
 
 </Example>

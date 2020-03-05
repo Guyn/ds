@@ -65,10 +65,6 @@ export default {
 // @import "~tools";
 svg {
 	overflow: visible;
-	// width: grid(2);
-	// @media #{$small-only} {
-	// 	width: grid(4);
-	// }
 	width: 5rem;
 	height: 5rem;
 	path {
