@@ -1,0 +1,8 @@
+@each $color-name, $color-value in $colors {
+	.background--#{to-lower-case($color-name)} {
+		background-color: $color-value;
+	}
+	.text--#{to-lower-case($color-name)} {
+		color: $color-value;
+	}
+}

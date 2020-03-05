@@ -1,0 +1,3 @@
+@function setLightness($color, $lightness: 50) {
+	@return hsla(hue($color), saturation($color), $lightness, alpha($color));
+}
