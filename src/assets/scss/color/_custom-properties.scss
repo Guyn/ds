@@ -1,0 +1,5 @@
+:root {
+	@each $color-name, $color-value in $colors {
+		--guyn-#{to-lower-case($color-name)}: #{$color-value};
+	}
+}
