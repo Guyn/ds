@@ -18,7 +18,7 @@
 </template>
 <script>
 export default {
-	data: ()=>({
+	data: () => ({
 		touched: false
 	}),
 	props: {
@@ -34,9 +34,15 @@ export default {
 		instructions: {
 			type: String,
 			default: null
-		}, fieldId:{
+		},
+		fieldId: {
 			type: String,
 			default: null
+		}
+	},
+	watch: {
+		focus: function(val) {
+			ha;
 		}
 	}
 };

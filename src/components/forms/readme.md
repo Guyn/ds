@@ -3,7 +3,7 @@
 <script>
 export default {
     components: {
-        Button : ()=>import('../General/Button/index.js'),
+        Button : ()=>import('../general/Button'),
         Checkbox : ()=>import('./Checkbox'),
         Radio : ()=>import('./Radio'),
         InputText : ()=>import('./InputText'),
