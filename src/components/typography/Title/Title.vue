@@ -1,11 +1,12 @@
 <template>
 	<component
 		:is="as"
-		:class="[`title--${asLike}`, `color--${color.toLowerCase()}`]"
+		:class="[`title--${asLike}`, `text--${color.toLowerCase()}`]"
 	>
 		<span class="title__icon" v-if="icon">
 			<Icon :name="icon"></Icon>
 		</span>
+		<span class="title__label" v-if="label">{{ label }}</span>
 		<slot></slot>
 	</component>
 </template>
@@ -27,6 +28,10 @@ export default {
 			default: `current`
 		},
 		icon: {
+			type: String,
+			default: null
+		},
+		label: {
 			type: String,
 			default: null
 		}

@@ -6,18 +6,21 @@
 			{ 'input-field--focus': focus }
 		]"
 	>
-		<slot></slot>
 		<div
 			class="input-field__instructions"
-			:aria-label="`${type}-instructions`"
+			:aria-label="`${fieldId}-instructions`"
 			v-if="instructions"
 		>
 			{{ instructions }}
 		</div>
+		<slot></slot>
 	</div>
 </template>
 <script>
 export default {
+	data: ()=>({
+		touched: false
+	}),
 	props: {
 		focus: {
 			type: Boolean,
@@ -29,6 +32,9 @@ export default {
 			required: true
 		},
 		instructions: {
+			type: String,
+			default: null
+		}, fieldId:{
 			type: String,
 			default: null
 		}

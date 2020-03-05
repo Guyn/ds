@@ -31,3 +31,23 @@ export default {
 <Example title="Heading 6">
 <Title as="h6">Hoiii</Title>
 </Example>
+
+### Color
+
+Titles can have different color by adding the `color` prop. Available colors are all main Guyn colors.
+
+<Example title="Heading 1">
+<Title as="h1" color="red">Hoiii</Title>
+<Title as="h2" color="green">Doeiii</Title>
+<Title as="h3" color="orange">La la la</Title>
+</Example>
+
+### Label
+
+All titles can have a label in front by adding the `label` prop to the element.
+
+<Example title="Heading 1">
+<Title as="h1" label="New!">Hoiii</Title>
+<Title as="h2" label="New!">Doeiii</Title>
+<Title as="h3" label="New!">La la la</Title>
+</Example>

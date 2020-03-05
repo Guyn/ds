@@ -1,10 +1,7 @@
 <template>
 	<div class="example">
 		<div class="example__title" v-if="title">{{ title }}</div>
-		<slot></slot>
-		<div class="example__code">
-			<pre><slot></slot></pre>
-		</div>
+		<slot />
 	</div>
 </template>
 <script>
@@ -17,6 +14,7 @@ export default {
 	},
 	mounted() {
 		console.log(this.$slots.default[0]);
+		console.log(this.$slots.default);
 	}
 };
 </script>
@@ -24,7 +22,6 @@ export default {
 @import "base";
 .example {
 	padding: 2rem;
-	// border: 1px solid $base-border-color;
 	box-shadow: 0 0 1rem 0 rgba($base-border-color, 0.25);
 	border-radius: $base-border-radius;
 	position: relative;
@@ -51,6 +48,13 @@ export default {
 		padding: 2rem;
 		background-color: $guyn-PlumDark;
 		color: white;
+	}
+	table{
+		width: 100%;
+		td,th{
+			padding: 1em;
+			text-align: left;
+		}
 	}
 }
 </style>

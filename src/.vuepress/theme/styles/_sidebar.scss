@@ -15,8 +15,8 @@
 			opacity: 0;
 			border-radius: $base-border-radius;
 			background-color: $guyn-White;
-			box-shadow: 0 0 0 1px $guyn-Ice;
-			position: absolute;
+			box-shadow: 0 0 1rem 0 $guyn-IceLight;
+			position: absolute; 
 			content: "";
 			left: -0.5rem;
 			top: -0.5rem;
@@ -72,9 +72,8 @@
 			height: calc(100% + 0.5rem);
 			display: block;
 			transform: scale(0.5);
-			transition: all $base-transition-bounce;
-			background-color: lighten($guyn-Plum, 70%);
-			color: $guyn-Plum;
+			background-color: setLightness($guyn-Plum, 90);
+			color:$guyn-Plum;
 		}
 		&.active {
 			font-weight: bold;

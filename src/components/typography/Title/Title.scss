@@ -9,6 +9,16 @@
 			color: $color-value;
 		}
 	}
+	&__label {
+		background-color: setLightness($base-primary-color, 80);
+		color: setLightness($base-primary-color, 30);
+		padding: 0.25em 0.35em;
+		line-height: 1;
+		font-size: 0.5em;
+		border-radius: $base-border-radius;
+		top: -0.35em;
+		position: relative;
+	}
 }
 .color--current {
 	color: currentColor;

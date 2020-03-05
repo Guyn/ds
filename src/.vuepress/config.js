@@ -1,6 +1,7 @@
 const path = require("path");
 console.log(path.resolve(__dirname, "../assets/scss/base.scss"));
 module.exports = {
+	dest: "dist",
 	themeConfig: {
 		sidebar: [
 			{

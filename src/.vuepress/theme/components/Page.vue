@@ -3,7 +3,9 @@
 		<slot name="top" />
 
 		<div class="page__split">
-			<Content class="page__content theme-default-content" />
+			<main class="page__main">
+				<Content class="page__content theme-default-content" />
+			</main>
 			<aside class="page__side"></aside>
 		</div>
 		<PageEdit />
@@ -29,15 +31,21 @@ export default {
 .page {
 	&__split {
 		display: grid;
-		grid-template-columns: minmax(50%, 480px) auto;
-		grid-template-areas: "content side";
+		// grid-template-columns: minmax(50%, 480px) auto;
+		grid-template-columns: minmax(100%, 320px) auto;
+		grid-template-areas: "main side";
 	}
-	&__content {
-		grid-area: content;
+	&__main {
+		grid-area: main;
 	}
 	&__side {
+		display: none;
 		grid-area: side;
 		background-color: $base-dark-color;
+	}
+	&__content{
+		max-width: 720px;
+		margin: auto;
 	}
 }
 </style>

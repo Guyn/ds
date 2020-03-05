@@ -3,7 +3,12 @@
 		margin-top: 1em;
 	}
 	&--focus {
-	}
+    }
+    &__instructions{
+        margin-top: .5em;
+        opacity: .5;
+        font-size: .875em;
+    }
 	&__group {
 		display: inline-flex;
 		.input-field + .input-field {

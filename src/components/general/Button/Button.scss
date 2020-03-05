@@ -8,6 +8,7 @@ $base-transition: 0.5s;
 	border: none;
 	border-radius: 1.5em;
 	// color: var(--bg);
+	margin: 1rem;
 	font-weight: 600;
 	font-size: 1rem;
 	line-height: 1em;
@@ -15,6 +16,7 @@ $base-transition: 0.5s;
 	transition: $base-transition ease-in-out;
 	padding: 1em 1.25em;
 	position: relative;
+	background-color: transparent;
 	&::before {
 		content: "";
 		width: 100%;
@@ -25,8 +27,24 @@ $base-transition: 0.5s;
 		top: 0;
 		border-radius: inherit;
 		z-index: 1;
-		background-color: lighten($guyn-SkyblueLight, 20%);
-		transition: transform $base-transition-bounce;
+		transition: background $base-transition-bounce;
+		animation: bumpOut $base-transition-bounce forwards;
+		@at-root {
+			@keyframes bumpOut {
+				from {
+					transform: scale(1.05, 1.1);
+				}
+				to {
+					transform: scale(1);
+				}
+			}
+		}
+	}
+	&.button--primary::before {
+		background-color: setLightness($guyn-SkyblueLight, 90);
+	}
+	&.button--secondary::before {
+		box-shadow: 0 0 0 2px lighten($guyn-SkyblueLight, 20%) inset;
 	}
 	&:focus,
 	&:hover {
@@ -35,8 +53,64 @@ $base-transition: 0.5s;
 	&__text {
 		position: relative;
 		z-index: 2;
+    }
+    &[disabled]{filter:grayscale(100%); opacity: 0.75};
+	&:hover {
+		.button__text {
+			animation: bumpInOut $base-transition $base-transition-bounce forwards;
+			@at-root {
+				@keyframes bumpInOut {
+					0%,
+					100% {
+						transform: scale(1);
+					}
+					80% {
+						transform: scale(1.1);
+					}
+				}
+			}
+		}
+		&::before {
+			animation: bumpIn $base-transition-bounce forwards;
+			@at-root {
+				@keyframes bumpIn {
+					0% {
+						transform: scale(1, 1);
+					}
+					50% {
+						transform: scale(1, 1.1);
+					}
+					100% {
+						transform: scale(1.05, 1.1);
+					}
+				}
+			}
+		}
 	}
-	&:hover::before {
-		transform: scale(1.05, 1.1);
+	@each $color-name, $color-value in $colors {
+		&--#{to-lower-case($color-name)} {
+			color: setLightness($color-value, 30);
+			&.button--primary {
+				&::before {
+					background-color: setLightness($color-value, 90);
+				}
+				&:hover::before {
+					background-color: hsl(
+						hue($color-value),
+						saturation($color-value),
+						80
+					);
+				}
+			}
+			&.button--secondary {
+				&::before {
+					box-shadow: 0 0 0 2px setLightness($color-value, 90) inset;
+				}
+
+				&:hover::before {
+					box-shadow: 0 0 0 2px setLightness($color-value, 80) inset;
+				}
+			}
+		}
 	}
 }

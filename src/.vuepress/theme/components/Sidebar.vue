@@ -1,5 +1,6 @@
 <template>
 	<aside class="sidebar">
+		<H1>Guyn</H1>
 		<NavLinks />
 		<slot name="top" />
 

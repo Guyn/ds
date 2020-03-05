@@ -13,6 +13,10 @@ export default {
 		icon: {
 			type: String,
 			default: null
+		},
+		secondary: {
+			type: Boolean,
+			default: false
 		}
 	},
 	data: () => ({
@@ -35,7 +39,8 @@ export default {
 			return [
 				"button",
 				this.$props.color ? `button--${this.$props.color}` : null,
-				this.$props.icon ? `button--icon` : null
+				this.$props.icon ? `button--icon` : null,
+				this.$props.secondary ? `button--secondary` : `button--primary`
 			];
 		}
 	},

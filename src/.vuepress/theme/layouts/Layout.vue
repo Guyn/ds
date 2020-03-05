@@ -9,14 +9,16 @@
 
 		<div class="sidebar__toggle" @click="toggleSidebar(false)" />
 
-		<Sidebar :items="sidebarItems" @toggle-sidebar="toggleSidebar">
-			<template #top>
-				<slot name="sidebar-top" />
-			</template>
-			<template #bottom>
-				<slot name="sidebar-bottom" />
-			</template>
-		</Sidebar>
+		<div class="layout__left">
+			<Sidebar :items="sidebarItems" @toggle-sidebar="toggleSidebar">
+				<template #top>
+					<slot name="sidebar-top" />
+				</template>
+				<template #bottom>
+					<slot name="sidebar-bottom" />
+				</template>
+			</Sidebar>
+		</div>
 
 		<Home class="page" v-if="$page.frontmatter.home" />
 
@@ -140,7 +142,7 @@ export default {
 
 .layout--default {
 	display: grid;
-	grid-template-columns: minmax(20%, 240px) auto;
+	grid-template-columns: minmax(15rem, 25%) auto;
 	grid-template-rows: auto;
 	grid-template-areas:
 		"header header"
@@ -148,9 +150,13 @@ export default {
 		"footer footer";
 	min-height: 100vh;
 
-	.sidebar {
+	.layout__left {
 		min-height: 100vh;
 		grid-area: sidebar;
+		display: flex; justify-content: flex-end;
+		aside{
+			width: 15rem;
+		}
 	}
 	.page {
 		min-height: 100vh;

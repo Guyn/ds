@@ -1,11 +1,14 @@
 <template>
-	<div class="row">
+	<div class="row" :class="gridClasses">
 		<slots></slots>
 	</div>
 </template>
 
 <script>
-export default {};
+import Grid from "../grid.vue";
+export default {
+	extends: Grid
+};
 </script>
 
 <style lang="scss" src="./Row.scss" />

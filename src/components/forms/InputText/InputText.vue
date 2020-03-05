@@ -1,5 +1,5 @@
 <template>
-	<Field type="text" :instructions="instructions" :focus="focus">
+	<Field type="text" :instructions="instructions" :focus="focus" :fieldID="Id">
 		<input
 			:id="ID"
 			class="input-field__input"
@@ -7,6 +7,7 @@
 			:placeholder="placeholder"
 			@focus="focus = true"
 			@blur="focus = false"
+			:aria-describedby="`${ID}-instructions`"
 		/>
 		<label v-if="label" class="input-field__label" :for="ID">{{ label }}</label>
 	</Field>

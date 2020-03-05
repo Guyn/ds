@@ -1,5 +1,5 @@
 <template>
-	<div class="notification" :class="`notification--${ding}`">
+	<div class="notification" role="alert" :class="`notification--${type}`">
 		<slot></slot>
 	</div>
 </template>
@@ -7,7 +7,7 @@
 <script>
 export default {
 	props: {
-		ding: {
+		type: {
 			type: String,
 			default: "notification"
 		}
