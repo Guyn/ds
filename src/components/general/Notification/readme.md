@@ -12,13 +12,38 @@ A default button will use the primary defined colors.
 
 <Example title="Base">
 <Notification><h4>Hi! Check this..</h4>
-<p>Aliquam dapibus, eros sit amet lobortis vestibulum, enim nunc elementum elit, sit amet blandit dui dolor id risus. Integer magna erat, fringilla ac eleifend a, facilisis at ex. </p>
+<p>The text to back this up.</p>
 </Notification>
+
+
+<template slot="code">
+
+```html
+<Notification>
+    <h4>Hi! Check this..</h4>
+    <p>The text to back this up.</p>
+</Notification>
+```
+</template>
 
 </Example>
 
 <Example title="Error">
-<Notification type="error"><h4>An error</h4><p>Praesent vitae enim ut tortor efficitur semper. Aenean et placerat nisi, sed tincidunt massa. Ut magna urna, lobortis id diam sit amet, malesuada viverra libero. Aenean posuere sed ex quis tincidunt. Phasellus tellus dui, consectetur ac dolor et, porttitor viverra tellus.</p></Notification>
+<Notification type="error">
+    <h4>An error</h4>
+    <p>Ah oh, something went wrong! Please blabla...</p>
+</Notification>
+
+
+<template slot="code">
+
+```html
+<Notification type="error">
+    <h4>An error</h4>
+    <p>Ah oh, something went wrong! Please blabla...</p>
+</Notification>
+```
+</template>
 
 </Example>
 

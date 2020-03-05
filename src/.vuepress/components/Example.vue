@@ -1,7 +1,12 @@
 <template>
 	<div class="example">
 		<div class="example__title" v-if="title">{{ title }}</div>
-		<slot />
+		<div class="example__content">
+			<slot />
+		</div>
+		<div class="example__code" v-if="hasCode">
+			<slot name="code"></slot>
+		</div>
 	</div>
 </template>
 <script>
@@ -12,19 +17,24 @@ export default {
 			default: null
 		}
 	},
+	computed: {
+		hasCode() {
+			return this.$slots.code ? true : false;
+		}
+	},
 	mounted() {
 		// console.log(this.$slots.default[0]);
-		// console.log(this.$slots.default);
+		console.log(this.$slots);
 	}
 };
 </script>
 <style lang="scss">
 @import "base";
 .example {
-	padding: 2rem;
 	box-shadow: 0 0 1rem 0 rgba($base-border-color, 0.25);
 	border-radius: $base-border-radius;
 	position: relative;
+	display: block;
 	&__title {
 		position: absolute;
 		left: 0;
@@ -40,14 +50,28 @@ export default {
 	& + .example {
 		margin-top: 2rem;
 	}
-	&__code {
-		position: absolute;
-		left: calc(100% + 100vw / 24 + 1px);
-		top: 0;
-		width: 100%;
+	&__content {
 		padding: 2rem;
-		background-color: $guyn-PlumDark;
+		position: relative;
+		display: block;
+	}
+	&__code {
+		// position: absolute;
+		z-index: 1;
+		overflow: hidden;
+		width: 100%;
+		background-color: $guyn-CloudLight;
 		color: white;
+		border-radius: 0 0 $base-border-radius $base-border-radius;
+		opacity: 0.25;
+		transition: all $base-transition;
+		filter: grayscale(100%);
+	}
+	&:hover {
+		.example__code {
+			opacity: 1;
+			filter: grayscale(0%);
+		}
 	}
 	table {
 		width: 100%;

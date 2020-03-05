@@ -21,6 +21,14 @@ A default button will use the primary defined colors.
 
 <Example title="Base">
 <Button>Hoiii</Button>
+
+<template slot="code">
+
+```html
+<Button>Hoiii</Button>
+```
+</template>
+
 </Example>
 
 #### Secondary button
@@ -29,6 +37,14 @@ The button can be colored in any color provided. By default these are all Guyn c
 
 <Example title="Colors">
    <Button secondary>Hoiii</Button>
+
+<template slot="code">
+
+```html
+<Button secondary>Hoiii</Button>
+```
+</template>
+
 </Example>
 
 #### Color
@@ -46,30 +62,39 @@ The button can be colored in any color provided. By default these are all Guyn c
     </thead>
     <tr>
         <td>Red</td>
-        <td><Button color="red">Hoiii</Button></td>
-        <td><Button secondary color="red" >Hoiii</Button></td>
+        <td><Button color="red">Red</Button></td>
+        <td><Button secondary color="red" >Red</Button></td>
     </tr>
     <tr>
         <td>Green</td>
-        <td><Button color="blue">Hoiii</Button></td>
-        <td><Button color="blue" secondary>Hoiii</Button></td>
+        <td><Button color="blue">Blue</Button></td>
+        <td><Button color="blue" secondary>Blue</Button></td>
     </tr>
     <tr>
         <td>Yellow</td>
-        <td><Button color="yellow">Hoiii</Button></td>
-        <td><Button color="yellow" secondary>Hoiii</Button></td>
+        <td><Button color="yellow">Yellow</Button></td>
+        <td><Button color="yellow" secondary>Yellow</Button></td>
     </tr>
     <tr>
         <td>Orange</td>
-        <td><Button color="orange">Hoiii</Button></td>
-        <td><Button color="orange" secondary>Hoiii</Button></td>
+        <td><Button color="orange">Orange</Button></td>
+        <td><Button color="orange" secondary>Orange</Button></td>
     </tr>
     <tr>
         <td>Purple</td>
-        <td><Button color="purple">Hoiii</Button></td>
-        <td><Button secondary color="purple" >Hoiii</Button></td>
+        <td><Button color="purple">Purple</Button></td>
+        <td><Button secondary color="purple" >Purple</Button></td>
     </tr>
 </table>
+
+
+<template slot="code">
+
+```html
+<Button color="red">A red button</Button>
+```
+</template>
+
 </Example>
 
 #### Disabled button
@@ -87,13 +112,21 @@ A disabled button can not be clicked and can be set by adding `disabled` to the 
     </thead>
     <tr>
         <td>Red</td>
-        <td><Button color="red">Hoiii</Button></td>
-        <td><Button  color="red" disabled>Hoiii</Button></td>
+        <td><Button color="red">Normal Red</Button></td>
+        <td><Button color="red" disabled>Disabled Red</Button></td>
     </tr>
     <tr>
         <td>Blue secondary</td>
-        <td><Button color="blue" secondary>Hoiii</Button></td>
-        <td><Button  color="blue" secondary disabled>Hoiii</Button></td>
+        <td><Button secondary>Normal secondary</Button></td>
+        <td><Button secondary disabled>Disabled secondary</Button></td>
     </tr>
 </table>
+
+<template slot="code">
+
+```html
+<Button secondary>Normal secondary</Button>
+<Button secondary disabled>Disabled secondary</Button>
+```
+</template>
 </Example>
