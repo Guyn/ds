@@ -14,9 +14,10 @@ $base-color: (
 	"primary": color(_Skyblue),
 	"secondary": color(_Green),
 	"tertiary": color(_Orange),
-	"dark": color(_Plum),
-	"light": color(_Ice),
+	"dark": color(_Nightblue),
+	"light": color(_White),
 	"notification": color(_Skyblue),
+	"error": color(_Red),
 	"warning": color(_Orange),
 	"success": color(_Green)
 );

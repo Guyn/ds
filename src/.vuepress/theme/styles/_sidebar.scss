@@ -1,7 +1,10 @@
+:root {
+	--is-dark: 0;
+}
 .sidebar {
-	background-color: white;
+	background-color: var(--base-color-background, #{$base-color-background});
 	border-right: var(--base-border, #{$base-border});
-	color: setLightness("--base-color-primary", 30);
+	color: var(--sidebar-background, #{setLightness("--base-color-primary", 30)});
 	padding: 1rem;
 	&__toggle {
 		position: fixed;

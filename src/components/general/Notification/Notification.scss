@@ -1,27 +1,32 @@
 @import "base";
 .notification {
-	--notification-color: #{$base-color-notification};
-	--notification-background: #{setLightness($base-color-notification, 80)};
-	--notification-text: #{setLightness($base-color-notification, 20)};
+	--notification-color: var(
+		--base-color-notification,
+		#{$base-color-notification}
+	);
+	--notification-background: #{setLightness(--base-color-notification, 80)};
+	--notification-text: #{setLightness(--base-color-notification, 20)};
 	padding: 1em 1em 1em 1.5em;
-	border-radius: 0 $base-border-radius $base-border-radius $base-border-radius;
+	border-radius: 0 var(--base-border-radius, #{$base-border-radius})
+		var(--base-border-radius, #{$base-border-radius})
+		var(--base-border-radius, #{$base-border-radius});
 	&__title {
 		color: var(--notification-color);
 	}
 	&--warning {
-		--notification-color: #{$base-color-warning};
-		--notification-background: #{setLightness($base-color-warning, 80)};
-		--notification-text: #{setLightness($base-color-warning, 20)};
+		--notification-color: var(--base-color-warning, #{$base-color-warning});
+		--notification-background: #{setLightness(--base-color-warning, 80)};
+		--notification-text: #{setLightness(--base-color-warning, 20)};
 	}
 	&--error {
-		--notification-color: #{$base-color-error};
-		--notification-background: #{setLightness($base-color-error, 80)};
-		--notification-text: #{setLightness($base-color-error, 20)};
+		--notification-color: var(--base-color-error, #{$base-color-error});
+		--notification-background: #{setLightness(--base-color-error, 80)};
+		--notification-text: #{setLightness(--base-color-error, 20)};
 	}
 	&--success {
-		--notification-color: #{$base-color-success};
-		--notification-background: #{setLightness($base-color-success, 80)};
-		--notification-text: #{setLightness($base-color-success, 20)};
+		--notification-color: var(--base-color-success, #{$base-color-success});
+		--notification-background: #{setLightness(--base-color-success, 80)};
+		--notification-text: #{setLightness(--base-color-success, 20)};
 	}
 	background-image: linear-gradient(
 		var(--notification-color),

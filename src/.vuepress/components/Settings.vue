@@ -63,6 +63,12 @@
 				<Select
 					inline
 					:options="allColors"
+					label="Notification"
+					v-model="settings.base_color_notification"
+				/>
+				<Select
+					inline
+					:options="allColors"
 					label="Warning"
 					v-model="settings.base_color_warning"
 				/>
@@ -227,7 +233,7 @@ export default {
 	transform: translateX(0%);
 	border-radius: var(--base-border-radius, #{$base-border-radius});
 	background-color: var(--base-color-dark, #{$base-color-dark});
-	color: white;
+	color: var(--base-color-light, #{$base-color-light});
 	display: block;
 	box-shadow: 0 0 8vw 0 rgba(0, 0, 0, 0.25);
 	height: calc(100vh - 8vw);
