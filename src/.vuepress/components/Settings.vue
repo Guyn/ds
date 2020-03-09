@@ -173,7 +173,7 @@ export default {
 						let hsl = hexToHsl(this.settings[item]);
 						console.log(hsl);
 						styles.push([`${customProperty}`, this.settings[item]]);
-						styles.push([`${customProperty}-h`, Math.round(hsl.s * 36000) / 100]);
+						styles.push([`${customProperty}-h`, Math.round(hsl.s * 10000) / 100]);
 						styles.push([
 							`${customProperty}-s`,
 							`${Math.round(hsl.s * 10000) / 100}%`
