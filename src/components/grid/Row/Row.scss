@@ -7,7 +7,6 @@
 }
 
 @function mq($values...) {
-	@debug $values;
 	// The breakpoint name
 	$bp: nth($values, 1);
 

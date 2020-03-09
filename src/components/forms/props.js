@@ -19,3 +19,26 @@ export const GroupProps = {
 	group: { type: String, default: null },
 	multi: { type: Boolean, default: false }
 };
+
+export const FieldProps = {
+	focus: {
+		type: Boolean,
+		default: false
+	},
+	type: {
+		type: String,
+		default: null
+	},
+	instructions: {
+		type: String,
+		default: null
+	},
+	fieldId: {
+		type: String,
+		default: null
+	},
+	inline: {
+		type: Boolean,
+		default: false
+	}
+};

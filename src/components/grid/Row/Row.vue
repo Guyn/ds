@@ -10,7 +10,7 @@ export default {
 	extends: Grid,
 	props: {
 		gap: {
-			type: Number,
+			type: [Number, String],
 			default: 0
 		}
 	},

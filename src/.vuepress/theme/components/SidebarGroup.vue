@@ -5,9 +5,6 @@
 				collapsable,
 				sidebar__subgroup: depth > 0,
 				sidebar__group: depth < 1,
-				'sidebar__subgroup--has-active':
-					isActive($route, item.path) && depth > 0,
-				'sidebar__group--has-active': isActive($route, item.path) && depth < 1,
 				'sidebar__subgroup--open': open && depth > 0,
 				'sidebar__group--open': open && depth < 1
 			},
@@ -40,7 +37,6 @@
 				sidebar__subheading: depth > 0,
 				sidebar__heading: depth < 1,
 				'sidebar__heading--open': open,
-				'sidebar__heading--active': isActive($route, item.path),
 				'sidebar__heading--collapsable': collapsable
 			}"
 			@click="$emit('toggle')"

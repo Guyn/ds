@@ -5,21 +5,18 @@ module.exports = {
 	themeConfig: {
 		sidebar: [
 			{
-				title: "General", // required
+				title: "General",
 				collapsable: false,
-				sidebarDepth: 2,
 				children: ["page/usage/", "page/about/"]
 			},
+			// {
+			// 	title: "Assets",
+			// 	path: "/assets/",
+			// 	collapsable: false,
+			// 	children: ["assets/color/", "assets/scss/", "assets/fonts/"]
+			// },
 			{
-				title: "Assets", // required
-				path: "/assets/",
-				collapsable: false,
-				sidebarDepth: 2,
-				children: ["assets/color/", "assets/scss/", "assets/fonts/"]
-			},
-
-			{
-				title: "Components", // required
+				title: "Components",
 				path: "/components/",
 				collapsable: false,
 				sidebarDepth: 3,
@@ -40,7 +37,7 @@ module.exports = {
 						children: ["components/typography/Title/"]
 					},
 					{
-						title: "Forms", // required
+						title: "Forms",
 						collapsable: false,
 						path: "/components/forms/",
 						children: [

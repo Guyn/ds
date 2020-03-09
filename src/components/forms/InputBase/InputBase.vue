@@ -7,7 +7,7 @@ export default {
 	}),
 	created() {
 		this.ID = this.createID();
-		this.currentValue = this.$props.value;
+		if (this.$props && this.$props.value) this.currentValue = this.$props.value;
 	},
 	methods: {
 		createID(prefix = null) {
@@ -19,7 +19,6 @@ export default {
 			);
 		},
 		updateValue() {
-			console.log(this.$props);
 			this.$emit("input", this.currentValue);
 		}
 	}

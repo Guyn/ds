@@ -19,33 +19,15 @@
 	</div>
 </template>
 <script>
+import { FieldProps } from "../props";
 export default {
 	data: () => ({
 		touched: false
 	}),
 	props: {
-		focus: {
-			type: Boolean,
-			default: false
-		},
-		type: {
-			type: String,
-			default: null,
-			required: true
-		},
-		instructions: {
-			type: String,
-			default: null
-		},
-		fieldId: {
-			type: String,
-			default: null
-		},
-		inline: {
-			type: Boolean,
-			default: false
-		}
+		...FieldProps
 	},
+
 	watch: {
 		focus: function(val) {
 			if (this.$props.focus) this.touched = true;
