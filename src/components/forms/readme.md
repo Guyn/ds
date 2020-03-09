@@ -1,5 +1,9 @@
 # Form Elements
 
+```js
+import { Button, Checkbox, Radio, InputText, TextArea, Select } from "@guyn/ds";
+```
+
 <script>
 export default {
     components: {

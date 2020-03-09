@@ -48,7 +48,8 @@ module.exports = {
 							"components/forms/Radio/",
 							"components/forms/Select/",
 							"components/forms/InputText/",
-							"components/forms/TextArea/"
+							"components/forms/TextArea/",
+							"components/forms/OptionGroup/"
 						]
 					},
 					{

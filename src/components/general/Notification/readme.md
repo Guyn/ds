@@ -1,5 +1,9 @@
 # Notifications
 
+```js
+import { Notification } from "@guyn/ds";
+```
+
 <script>
 export default {
     components: {Notification : ()=>import('./Notification')}

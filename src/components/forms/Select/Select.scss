@@ -1,36 +1,25 @@
 @import "base";
-.input-field {
-	&--select {
-		display: flex;
-		flex-direction: column-reverse;
-		justify-content: start;
-	}
-	&__select {
-		border-radius: $base-form-border-radius;
-		border: $base-form-border;
-		padding: 0.5em;
-		& + .input-field__label {
-			margin-bottom: 1em;
-		}
-		select {
-			border: none;
-			width: 100%;
-			height: 100%;
-			background-color: transparent;
+.input-field--select {
+	.input-field__input {
+		&::after {
+			content: "";
+			position: absolute;
+			right: 1em;
+			top: 50%;
+			display: block;
+			height: 0.5em;
+			width: 0.75em;
+			transform: translateY(-50%);
+			background-image: linear-gradient(
+					to left bottom,
+					currentColor 50%,
+					transparent 50%
+				),
+				linear-gradient(to right bottom, currentColor 50%, transparent 50%);
 
-			padding: 0.75em;
-			line-height: 1;
-			font-size: 1em;
-			-webkit-appearance: none;
-			border-radius: $base-form-border-radius;
-			&:focus {
-				outline: none;
-			}
-		}
-	}
-	&--focus {
-		.input-field__select {
-			box-shadow: 0 0 0 3px $base-form-highlight;
+			background-repeat: no-repeat, no-repeat;
+			background-size: 50% 100%, 50% 100%;
+			background-position: 0 0, 100% 0;
 		}
 	}
 }

@@ -1,7 +1,6 @@
 @import "base";
 
 .text {
-	border: 1px solid red;
 }
 .title {
 	@each $color-name, $color-value in $colors {
@@ -10,8 +9,8 @@
 		}
 	}
 	&__label {
-		background-color: setLightness($base-primary-color, 80);
-		color: setLightness($base-primary-color, 30);
+		background-color: setLightness($base-color-primary, 80);
+		color: setLightness($base-color-primary, 30);
 		padding: 0.25em 0.35em;
 		line-height: 1;
 		font-size: 0.5em;

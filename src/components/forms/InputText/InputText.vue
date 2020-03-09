@@ -1,15 +1,30 @@
 <template>
-	<Field type="text" :instructions="instructions" :focus="focus" :fieldID="Id">
-		<input
-			:id="ID"
-			class="input-field__input"
-			type="text"
-			:placeholder="placeholder"
-			@focus="focus = true"
-			@blur="focus = false"
-			:aria-describedby="`${ID}-instructions`"
-		/>
-		<label v-if="label" class="input-field__label" :for="ID">{{ label }}</label>
+	<Field
+		type="text"
+		:instructions="instructions"
+		:focus="focus"
+		:fieldID="ID"
+		:inline="inline"
+	>
+		<div class="input-field__input">
+			<input
+				:id="ID"
+				class="input-field__element"
+				type="text"
+				:placeholder="placeholder"
+				@focus="focus = true"
+				@blur="focus = false"
+				:aria-describedby="`${ID}-instructions`"
+				v-model="currentValue"
+				@input="updateValue"
+				:pattern="pattern"
+			/>
+			<div class="input-field__unit" v-if="unit">{{ unit }}</div>
+		</div>
+
+		<label v-if="label" class="input-field__label" :for="ID">
+			{{ label }}
+		</label>
 	</Field>
 </template>
 <script>
@@ -24,6 +39,15 @@ export default {
 	props: {
 		...DefaultProps,
 		...TextProps
+	},
+	watch: {
+		currentValue: {
+			handler() {
+				if (this.$props.type == "number") {
+					this.currentValue = parseInt(this.currentValue);
+				}
+			}
+		}
 	}
 };
 </script>

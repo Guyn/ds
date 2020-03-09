@@ -1,10 +1,16 @@
 @import "base";
 .card {
-	border-radius: var(--card-border-radius, #{$base-border-radius});
+	border-radius: var(
+		--card-border-radius,
+		var(--base-border-radius, #{$base-border-radius})
+	);
 	overflow: hidden;
 	position: relative;
 	display: block;
-	background-color: var(--card-background-color, $guyn-White);
+	background-color: var(
+		--card-background-color,
+		var(--base-color-light, #{$base-color-light})
+	);
 	box-shadow: 0 0 2em 0 rgba(0, 0, 0, 0.1);
 	text-decoration: none;
 	color: inherit;
@@ -31,7 +37,7 @@
 		padding: 1em;
 	}
 	&__title {
-		color: var(--card-title-color, #{$base-primary-color});
+		color: var(--card-title-color, #{$base-color-primary});
 	}
 	@each $color-name, $color-value in $colors {
 		&--#{to-lower-case($color-name)} {

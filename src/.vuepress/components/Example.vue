@@ -24,7 +24,7 @@ export default {
 	},
 	mounted() {
 		// console.log(this.$slots.default[0]);
-		console.log(this.$slots);
+		// console.log(this.$slots);
 	}
 };
 </script>
@@ -45,7 +45,7 @@ export default {
 		border-radius: $base-border-radius;
 		font-size: 14px;
 		color: white;
-		background-color: $base-primary-color;
+		background-color: $base-color-primary;
 	}
 	& + .example {
 		margin-top: 2rem;
@@ -60,8 +60,7 @@ export default {
 		z-index: 1;
 		overflow: hidden;
 		width: 100%;
-		background-color: $guyn-CloudLight;
-		color: white;
+		background-color: setLightness(--base-color-light, 80);
 		border-radius: 0 0 $base-border-radius $base-border-radius;
 		opacity: 0.25;
 		transition: all $base-transition;

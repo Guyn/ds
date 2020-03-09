@@ -1,0 +1,79 @@
+@import "base";
+.input-field--text,
+.input-field--textarea,
+.input-field--select {
+	display: flex;
+	flex-direction: column-reverse;
+	justify-content: start;
+	.input-field--inline {
+		display: flex;
+		flex-direction: row-reverse;
+		justify-content: start;
+	}
+	.input-field {
+		&__unit {
+			position: absolute;
+			top: 50%;
+			right: 1em;
+			text-transform: uppercase;
+			opacity: 0.5;
+			font-size: 0.75em;
+			transform: translateY(-50%);
+		}
+
+		&__input {
+			border: var(--base-form-border, var(--base-border, #{$base-border}));
+			border-radius: var(
+				--base-form-border-radius,
+				var(--base-border-radius, #{$base-border-radius})
+			);
+			position: relative;
+			padding: 0
+				var(--base-form-padding, var(--base-padding, #{$base-form-padding}));
+
+			& + .input-field__label {
+				margin-bottom: 0.5em;
+			}
+
+			textarea,
+			select,
+			input {
+				&::placeholder {
+					color: var(
+						--base-form-text-color,
+						var(--base-text-color, #{$base-text-color})
+					);
+					font-style: italic;
+					opacity: 0.5;
+				}
+				&:placeholder-shown {
+					opacity: 0.5;
+					& + .input-field__label {
+						opacity: 0.5;
+					}
+				}
+				padding: var(
+						--base-form-padding,
+						var(--base-padding, #{$base-form-padding})
+					)
+					0;
+				border: none;
+				width: 100%;
+				background-color: transparent;
+				color: var(
+					--base-form-text-color,
+					var(--base-text-color, #{$base-text-color})
+				);
+				font-size: 1em;
+				line-height: 1;
+				-webkit-appearance: none;
+				&:focus {
+					outline: none;
+				}
+			}
+		}
+
+		&__label {
+		}
+	}
+}

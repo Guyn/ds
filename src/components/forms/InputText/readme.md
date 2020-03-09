@@ -1,5 +1,9 @@
 # InputText
 
+```js
+import { InputText } from "@guyn/ds";
+```
+
 <script>
 export default {
     components: {

@@ -1,5 +1,9 @@
 # Column
 
+```js
+import { Column } from "@guyn/ds";
+```
+
 #### Props
 
 | prop     | default | description                          |

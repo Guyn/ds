@@ -7,24 +7,3 @@ ul {
 ol:not([class]),
 ul:not([class]) {
 }
-
-p {
-	code {
-		position: relative;
-		display: inline-block;
-		color: darken($base-secondary-color, 40%);
-
-		&::before {
-			z-index: -1;
-			background-color: lighten($base-secondary-color, 20%);
-			content: "";
-			border-radius: $base-border-radius;
-			display: block;
-			width: calc(100% + 0.5em);
-			height: calc(100% + 0.5em);
-			position: absolute;
-			left: -0.25em;
-			top: -0.25em;
-		}
-	}
-}

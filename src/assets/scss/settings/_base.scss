@@ -1,23 +1,38 @@
+// Base
 $base-border-radius: 0.5rem !default;
-$base-transition-time: 0.3;
-$base-cubic-bezier: ease-in-out;
-$base-cubic-bounce: cubic-bezier(0.15, 0.65, 0.65, 1.4);
-$base-transition: #{$base-transition-time}s #{$base-cubic-bezier};
-$base-transition-bounce: #{$base-transition-time}s #{$base-cubic-bounce};
+$base-border-color: color(_Ice) !default;
+$base-border-width: 1px !default;
+$base-border: #{$base-border-width} solid #{$base-border-color} !default;
+$base-padding: 2em !default;
+$base-margin: 1em !default;
 
-$base-border-color: $guyn-ice;
+// Text
+$base-text-color: currentColor !default;
 
-$base-primary-color: $guyn-Skyblue;
-$base-secondary-color: $guyn-Plum;
-$base-tertiary-color: $guyn-Orange;
-$base-dark-color: $guyn-Plum;
-$base-light-color: $guyn-Ice;
+// Transition
+$base-cubic-bezier: ease-in-out !default;
+$base-cubic-bounce: cubic-bezier(0.15, 0.65, 0.65, 1.4) !default;
+$base-transition-time: 0.3 !default;
+$base-transition: #{$base-transition-time}s #{$base-cubic-bezier} !default;
+$base-transition-bounce: #{$base-transition-time}s #{$base-cubic-bounce} !default;
 
+// Defined Colors
+$base-color-primary: color(_Skyblue) !default;
+$base-color-secondary: color(_Plum) !default;
+$base-color-tertiary: color(_Orange) !default;
+$base-color-dark: color(_Plum) !default;
+$base-color-light: color(_Ice) !default;
+$base-color-background: color(_White) !default;
+
+// Form specific
 $base-form-border: 1px solid currentColor !default;
 $base-form-border-radius: $base-border-radius !default;
-$base-form-highlight: rgba($base-primary-color, 0.35);
+$base-form-highlight: rgba($base-color-primary, 0.35) !default;
+$base-form-text-color: currentColor !default;
+$base-form-padding: 1em;
 
-$base-notification-color: $guyn-Skyblue !default;
-$base-warning-color: $guyn-Orange;
-$base-error-color: $guyn-Red;
-$base-success-color: $guyn-Green;
+// Notification
+$base-color-notification: color(_Skyblue) !default;
+$base-color-warning: color(_Orange) !default;
+$base-color-error: color(_Red) !default;
+$base-color-success: color(_Green) !default;

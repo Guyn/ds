@@ -20,8 +20,22 @@
 				display: block;
 				width: 1em;
 				height: 1em;
-				box-shadow: 0 0 0 1px currentColor inset;
-				border-radius: 3px;
+				box-shadow: 0 0 0
+					var(
+						--base-form-border-width,
+						var(--base-border-width, #{$base-border-width})
+					)
+					var(
+						--base-form-border-color,
+						var(--base-border-color, #{$base-border-color})
+					)
+					inset;
+				border-radius: calc(
+					var(
+						--base-form-border-radius,
+						var(--base-border-radius, #{$base-border-radius}) / 2
+					)
+				);
 				transform: translateY(-50%);
 			}
 			&::after {
@@ -32,10 +46,15 @@
 				display: block;
 				width: 0.5em;
 				height: 0.5em;
-				border-radius: 2px;
+				border-radius: calc(
+					var(
+						--base-form-border-radius,
+						var(--base-border-radius, #{$base-border-radius}) / 3
+					)
+				);
 				background-color: var(
 					--checkbox-check-color,
-					var(--checkbox-check-default, #{$base-primary-color})
+					var(--checkbox-check-default, #{$base-color-primary})
 				);
 				transform: translateY(-50%) scale(0);
 				transition: transform $base-transition-bounce;
@@ -48,7 +67,8 @@
 		}
 		input:focus + label {
 			&::before {
-				box-shadow: 0 0 0 1px currentColor inset, 0 0 0 2px $base-form-highlight;
+				box-shadow: 0 0 0 1px currentColor inset,
+					0 0 0 2px setOpacity(--base-color-primary, 25);
 			}
 		}
 	}

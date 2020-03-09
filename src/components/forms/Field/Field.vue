@@ -3,7 +3,9 @@
 		class="input-field"
 		:class="[
 			type ? `input-field--${type}` : null,
-			{ 'input-field--focus': focus }
+			inline ? `input-field--inline` : null,
+			{ 'input-field--focus': focus },
+			{ 'input-field--touched': touched }
 		]"
 	>
 		<div
@@ -38,11 +40,15 @@ export default {
 		fieldId: {
 			type: String,
 			default: null
+		},
+		inline: {
+			type: Boolean,
+			default: false
 		}
 	},
 	watch: {
 		focus: function(val) {
-			ha;
+			if (this.$props.focus) this.touched = true;
 		}
 	}
 };

@@ -1,14 +1,40 @@
+@import "base";
 .input-field {
 	& + .input-field {
-		margin-top: 1em;
+		margin-top: var(--base-form-margin, var(--base-margin, #{$base-margin}));
 	}
+
 	&--focus {
-    }
-    &__instructions{
-        margin-top: .5em;
-        opacity: .5;
-        font-size: .875em;
-    }
+		.input-field__input {
+			box-shadow: 0 0 0 1px currentColor inset,
+				0 0 0 3px setOpacity(--base-color-primary, 25);
+			& + .input-field__label {
+				color: var(
+					--base-form-highlight,
+					var(--base-color-primary, #{$base-color-primary})
+				);
+			}
+		}
+	}
+	&__instructions {
+		margin-top: 0.5em;
+		opacity: 0.5;
+		font-size: 0.875em;
+	}
+	&--inline {
+		justify-content: flex-start;
+		flex-direction: row-reverse !important;
+		.input-field__label {
+			width: 33.33%;
+			padding: 1em;
+			line-height: 1;
+			margin-bottom: 0 !important;
+		}
+		.input-field__select,
+		.input-field__input {
+			width: 66.66%;
+		}
+	}
 	&__group {
 		display: inline-flex;
 		.input-field + .input-field {

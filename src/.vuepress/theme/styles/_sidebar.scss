@@ -1,7 +1,7 @@
 .sidebar {
 	background-color: white;
-	border-right: 1px solid $guyn-IceLight;
-	color: $guyn-Plum;
+	border-right: var(--base-border, #{$base-border});
+	color: setLightness("--base-color-primary", 30);
 	padding: 1rem;
 	&__toggle {
 		position: fixed;
@@ -13,10 +13,10 @@
 		position: relative;
 		&::before {
 			opacity: 0;
-			border-radius: $base-border-radius;
-			background-color: $guyn-White;
-			box-shadow: 0 0 1rem 0 $guyn-IceLight;
-			position: absolute; 
+			border-radius: var(--base-border-radius, #{$base-border-radius});
+			background-color: var(--base-color-background, #{$base-color-background});
+			box-shadow: 0 0 1rem 0 var(--base-color-light, #{$base-color-light});
+			position: absolute;
 			content: "";
 			left: -0.5rem;
 			top: -0.5rem;
@@ -61,8 +61,8 @@
 		z-index: 1;
 		&::before {
 			opacity: 0;
-			border-radius: $base-border-radius;
-			background-color: $guyn-White;
+			border-radius: var(--base-border-radius, #{$base-border-radius});
+			background-color: var(--base-color-background, #{$base-color-background});
 			position: absolute;
 			content: "";
 			z-index: -1;
@@ -72,11 +72,12 @@
 			height: calc(100% + 0.5rem);
 			display: block;
 			transform: scale(0.5);
-			background-color: setLightness($guyn-Plum, 90);
-			color:$guyn-Plum;
+			background-color: setLightness("--base-color-secondary", 90);
 		}
 		&.active {
 			font-weight: bold;
+			color: setLightness("--base-color-secondary", 30);
+
 			&::before {
 				transform: scale(1);
 				opacity: 1;
@@ -95,7 +96,7 @@
 		display: block;
 		&--open {
 			&.sidebar__item--depth-0 {
-				background-color: $guyn-Yellow;
+				background-color: var(--base-color-secondary, #{$base-color-secondary});
 			}
 		}
 		&--depth-0 {

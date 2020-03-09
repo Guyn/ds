@@ -1,0 +1,10 @@
+@function is-negative($number) {
+	@if type-of($number) == "number" {
+		@return $number < 0;
+	} @else if type-of($number) == "string" {
+		@return str-index($number, "-") == 1;
+	} @else {
+		@warn "#{$number} is not a number";
+		@return false;
+	}
+}

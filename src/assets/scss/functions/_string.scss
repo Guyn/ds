@@ -1,0 +1,38 @@
+// Str-replace
+// Find an replace a $string with another $string
+
+@function str-replace($string, $search, $replace: "") {
+	$index: str-index($string, $search);
+
+	@if $index {
+		@return str-slice($string, 1, $index - 1) + $replace +
+			str-replace(
+				str-slice($string, $index + str-length($search)),
+				$search,
+				$replace
+			);
+	}
+
+	@return $string;
+}
+
+// Char-at
+// Return the character in a string on a given index.
+
+@function char-at($string, $index) {
+	@return str-slice($string, $index, $index);
+}
+
+// First-char
+// Return the first character of a string
+
+@function first-char($string) {
+	@return char-at($string, 1);
+}
+
+// Last-char
+// Return the last character of a string
+
+@function last-char($string) {
+	@return char-at($string, str-length($string));
+}

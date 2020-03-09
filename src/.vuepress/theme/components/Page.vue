@@ -41,7 +41,7 @@ export default {
 	&__side {
 		display: none;
 		grid-area: side;
-		background-color: $base-dark-color;
+		background-color: $base-color-dark;
 	}
 	&__content {
 		max-width: 720px;

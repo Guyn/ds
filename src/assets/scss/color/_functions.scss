@@ -1,3 +1,73 @@
-@function setLightness($color, $lightness: 50) {
+// hexStringToRGB
+// Convert a HEX string which is a string into a RGB color
+
+@function hexStringToRGB($string) {
+	$rgb: ();
+
+	$s: to-lower-case($string);
+
+	@if char-at($s, 1) != "#" {
+		@warn '#{$string} is not a hex color code.';
+		@return $string;
+	}
+
+	// 3 digits
+	@if str-length($string) == 4 {
+		$rgb: (
+			(parseInt(char-at($s, 2) + char-at($s, 2), 16)),
+			(parseInt(char-at($s, 3) + char-at($s, 3), 16)),
+			(parseInt(char-at($s, 4) + char-at($s, 4), 16))
+		);
+	}
+	// 6 digits
+	@else if str-length($string) == 7 {
+		$rgb: (
+			(parseInt(char-at($s, 2) + char-at($s, 3), 16)),
+			(parseInt(char-at($s, 4) + char-at($s, 5), 16)),
+			(parseInt(char-at($s, 6) + char-at($s, 7), 16))
+		);
+	}
+
+	$red: nth($rgb, 1);
+	$green: nth($rgb, 2);
+	$blue: nth($rgb, 3);
+
+	@return rgb($red, $green, $blue);
+}
+
+// color
+// Get the color from the defined colors.
+
+@function color($color, $alpha: 1) {
+	$color-value: map-get($colors, str-replace($color, "_", ""));
+	@return hexStringToRGB($color-value);
+}
+
+// setLightness
+// Set the lightness of a Custom property or HEX Sass Variable
+
+@function setLightness($color, $lightness: 50, $alpha: 1) {
+	@if type-of($color) == "string" and char-at($color, 1) == "#" {
+		$color: hexStringToRGB($color);
+	}
+	@if $alpha > 1 {
+		$alpha: $alpha / 100;
+	}
+	@if type-of($color) == "string" and str-slice($color, 1, 2) == "--" {
+		@return hsla(var(#{$color}-h), var(#{$color}-s), $lightness * 1%, $alpha);
+	}
 	@return hsla(hue($color), saturation($color), $lightness, alpha($color));
+}
+
+// setOpacity
+// Set the opacity of a Custom property or HEX Sass Variable
+
+@function setOpacity($color, $alpha: 1) {
+	@if $alpha > 1 {
+		$alpha: $alpha / 100;
+	}
+	@if type-of($color) == "string" and str-slice($color, 1, 2) == "--" {
+		@return hsla(var(#{$color}-h), var(#{$color}-s), var(#{$color}-l), $alpha);
+	}
+	@return hsla(hue($color), saturation($color), lightness($color), $alpha);
 }

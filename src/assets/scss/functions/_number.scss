@@ -1,0 +1,43 @@
+@function charsFromBase($base: 10) {
+	$chars: (
+		// Binary
+			2: "01",
+		// Octal
+			8: "01234567",
+		// Decimal
+			10: "0123456789",
+		// Hexadecimal
+			16: "0123456789abcdef",
+		// Base 36
+			36: "0123456789abcdefghijklmnopqrstuvwxyz",
+		// Base 64
+			64: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
+	);
+
+	@if not map-has-key($chars, $base) {
+		@warn "There is no base `#{$base}` available.";
+	}
+	@return map-get($chars, $base);
+}
+
+// parseInt
+// Parse a string to a number using a
+
+@function parseInt($str, $radix: 10) {
+	@if type-of($str) == "number" {
+		@return $str;
+	}
+	$chars: charsFromBase($radix);
+	$result: 0;
+
+	$is-negative: is-negative($str);
+
+	@for $i from 1 through str-length($str) {
+		$char: str-slice($str, -$i, -$i);
+		$value: str-index($chars, $char) - 1;
+		$powed: pow($radix, ($i - 1));
+		$result: $result + ($value * $powed);
+	}
+
+	@return if($is-negative, -$result, $result);
+}

@@ -1,6 +1,11 @@
 <template>
-	<Field type="select" :instructions="instructions" :focus="focus">
-		<div class="input-field__select" :class="{ 'input-field--focus': focus }">
+	<Field
+		type="select"
+		:instructions="instructions"
+		:focus="focus"
+		:inline="inline"
+	>
+		<div class="input-field__input" :class="{ 'input-field--focus': focus }">
 			<select
 				:id="ID"
 				:disabled="disabled"
@@ -8,6 +13,8 @@
 				:name="name"
 				@focus="focus = true"
 				@blur="focus = false"
+				v-model="currentValue"
+				@change="updateValue"
 			>
 				<option
 					v-for="(option, idx) in options"
@@ -16,7 +23,6 @@
 				>
 					{{ option.label ? option.label : option }}
 				</option>
-				<option>Test</option>
 			</select>
 		</div>
 		<label class="input-field__label" :for="ID">

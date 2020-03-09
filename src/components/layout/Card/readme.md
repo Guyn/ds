@@ -1,5 +1,9 @@
 # Card
 
+```js
+import Card from "@guyn/ds";
+```
+
 <script>
 export default {
     components: {
@@ -19,7 +23,6 @@ export default {
 | `link`  | `null`  | A card can have a link                             |
 | `color` | `null`  | Give the card a color                              |
 
-
 #### Default
 
 A default card is just a little block.
@@ -32,6 +35,7 @@ A default card is just a little block.
 ```html
 <Card>I am a card and this is the content</Card>
 ```
+
 </template>
 </Example>
 
@@ -47,9 +51,9 @@ A default card is just a little block.
 ```html
 <Card title="I am card">And this is the content</Card>
 ```
+
 </template>
 </Example>
-
 
 #### With image
 
@@ -63,6 +67,7 @@ An image card add a image to the top.
 ```html
 <Card title="I am card" image="[image url]">And this is the content</Card>
 ```
+
 </template>
 </Example>
 
@@ -86,10 +91,17 @@ A default card is just a little block.
 <template slot="code">
 
 ```html
-<Card color="red" title="I am Red card" image="[image url]">And this is the content</Card>
-<Card color="blue" title="I am Blue card" image="[image url]">And this is the content</Card>
-<Card color="green" title="I am Green card" image="[image url]">And this is the content</Card>
+<Card color="red" title="I am Red card" image="[image url]"
+	>And this is the content</Card
+>
+<Card color="blue" title="I am Blue card" image="[image url]"
+	>And this is the content</Card
+>
+<Card color="green" title="I am Green card" image="[image url]"
+	>And this is the content</Card
+>
 ```
+
 </template>
 </Example>
 

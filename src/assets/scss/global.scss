@@ -1,3 +1,4 @@
+@import "functions";
 @import "color";
 @import "settings";
 
@@ -7,5 +8,5 @@
 @import "typography";
 
 body {
-	background-color: $guyn-White;
+	background-color: var(--base-color-background, #{$base-color-background});
 }

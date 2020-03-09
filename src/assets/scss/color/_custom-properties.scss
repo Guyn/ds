@@ -1,5 +1,33 @@
 :root {
 	@each $color-name, $color-value in $colors {
-		--guyn-#{to-lower-case($color-name)}: #{$color-value};
+		@if type-of($color-value) != "color" and char-at($color-value, 1) == "#" {
+			$color-value: hexStringToRGB($color-value);
+		}
+		--color-#{to-lower-case($color-name)}: #{$color-value};
+		--color-#{to-lower-case($color-name)}-h: #{hue($color-value)};
+		--color-#{to-lower-case($color-name)}-s: #{saturation($color-value)};
+		--color-#{to-lower-case($color-name)}-l: #{lightness($color-value)};
+	}
+}
+
+$base-color: (
+	"primary": color(_Skyblue),
+	"secondary": color(_Green),
+	"tertiary": color(_Orange),
+	"dark": color(_Plum),
+	"light": color(_Ice),
+	"notification": color(_Skyblue),
+	"warning": color(_Orange),
+	"success": color(_Green)
+);
+:root {
+	@each $color-name, $color-value in $base-color {
+		@if type-of($color-value) != "color" and char-at($color-value, 1) == "#" {
+			$color-value: hexStringToRGB($color-value);
+		}
+		--base-color-#{to-lower-case($color-name)}: #{$color-value};
+		--base-color-#{to-lower-case($color-name)}-h: #{hue($color-value)};
+		--base-color-#{to-lower-case($color-name)}-s: #{saturation($color-value)};
+		--base-color-#{to-lower-case($color-name)}-l: #{lightness($color-value)};
 	}
 }

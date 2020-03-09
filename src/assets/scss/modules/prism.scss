@@ -86,7 +86,7 @@ pre[class*="language-"] {
 .token.constant,
 .token.symbol,
 .token.deleted {
-	color: $guyn-Red;
+	color: var(--color-red);
 }
 
 .token.selector,
@@ -96,14 +96,14 @@ pre[class*="language-"] {
 .token.function,
 .token.builtin,
 .token.inserted {
-	color: $guyn-Green;
+	color: var(--color-green);
 }
 
 .token.operator,
 .token.entity,
 .token.url,
 .token.variable {
-	color: $guyn-Brown;
+	color: var(--color-brown);
 	background: rgba(255, 255, 255, 0.5);
 }
 
@@ -111,17 +111,17 @@ pre[class*="language-"] {
 .token.attr-value,
 .token.keyword,
 .token.class-name {
-	color: $guyn-Skyblue;
+	color: var(--color-skyblue);
 }
 
 .token.regex,
 .token.important {
-	color: $guyn-Orange;
+	color: var(--color-orange);
 }
 
 .language-css .token.string,
 .style .token.string {
-	color: $guyn-Brown;
+	color: var(--color-brown);
 	background: rgba(255, 255, 255, 0.5);
 }
 

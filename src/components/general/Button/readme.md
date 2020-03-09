@@ -1,5 +1,9 @@
 # Button
 
+```js
+import { Button } from "@guyn/ds";
+```
+
 <script>
 export default {
     components: {Button : ()=>import('./Button')}
@@ -25,8 +29,9 @@ A default button will use the primary defined colors.
 <template slot="code">
 
 ```html
-<Button>Hoiii</Button>
+<button>Hoiii</button>
 ```
+
 </template>
 
 </Example>
@@ -41,8 +46,9 @@ The button can be colored in any color provided. By default these are all Guyn c
 <template slot="code">
 
 ```html
-<Button secondary>Hoiii</Button>
+<button secondary>Hoiii</button>
 ```
+
 </template>
 
 </Example>
@@ -87,12 +93,12 @@ The button can be colored in any color provided. By default these are all Guyn c
     </tr>
 </table>
 
-
 <template slot="code">
 
 ```html
-<Button color="red">A red button</Button>
+<button color="red">A red button</button>
 ```
+
 </template>
 
 </Example>
@@ -125,8 +131,9 @@ A disabled button can not be clicked and can be set by adding `disabled` to the 
 <template slot="code">
 
 ```html
-<Button secondary>Normal secondary</Button>
-<Button secondary disabled>Disabled secondary</Button>
+<button secondary>Normal secondary</button>
+<button secondary disabled>Disabled secondary</button>
 ```
+
 </template>
 </Example>

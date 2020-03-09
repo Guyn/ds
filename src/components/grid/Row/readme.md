@@ -1,5 +1,9 @@
 # Row
 
+```js
+import { Row } from "@guyn/ds";
+```
+
 #### Props
 
 | prop     | default | description                          |
@@ -10,4 +14,3 @@
 | `large`  | `null`  | Size from large and up               |
 | `xlarge` | `null`  | Size from xlarge and up              |
 | `gap`    | `0`     | Gap between columns in `em`          |
-

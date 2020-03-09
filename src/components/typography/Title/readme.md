@@ -1,5 +1,9 @@
 # Title
 
+```js
+import { Title } from "@guyn/ds";
+```
+
 <script>
 export default {
     components: {Title : ()=>import('./Title')}

@@ -6,7 +6,6 @@
 		@touchend="onTouchEnd"
 	>
 		<!-- <Navbar v-if="shouldShowNavbar" @toggle-sidebar="toggleSidebar" /> -->
-
 		<div class="sidebar__toggle" @click="toggleSidebar(false)" />
 
 		<div class="layout__left">
@@ -14,6 +13,7 @@
 				<template #top>
 					<slot name="sidebar-top" />
 				</template>
+
 				<template #bottom>
 					<slot name="sidebar-bottom" />
 				</template>
@@ -30,6 +30,10 @@
 				<slot name="page-bottom" />
 			</template>
 		</Page>
+		<Settings></Settings>
+		<style>
+			{{ customStyle }}
+		</style>
 	</div>
 </template>
 
@@ -52,11 +56,15 @@ export default {
 
 	data() {
 		return {
+			currentValue: "test",
 			isSidebarOpen: false
 		};
 	},
 
 	computed: {
+		customStyle() {
+			return this.$store.getters["getStyle"];
+		},
 		shouldShowNavbar() {
 			const { themeConfig } = this.$site;
 			const { frontmatter } = this.$page;
@@ -153,8 +161,9 @@ export default {
 	.layout__left {
 		min-height: 100vh;
 		grid-area: sidebar;
-		display: flex; justify-content: flex-end;
-		aside{
+		display: flex;
+		justify-content: flex-end;
+		aside {
 			width: 15rem;
 		}
 	}

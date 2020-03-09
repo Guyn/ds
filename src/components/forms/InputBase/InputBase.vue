@@ -7,6 +7,7 @@ export default {
 	}),
 	created() {
 		this.ID = this.createID();
+		this.currentValue = this.$props.value;
 	},
 	methods: {
 		createID(prefix = null) {
@@ -16,6 +17,10 @@ export default {
 					.toString(36)
 					.substr(2, 9)
 			);
+		},
+		updateValue() {
+			console.log(this.$props);
+			this.$emit("input", this.currentValue);
 		}
 	}
 };

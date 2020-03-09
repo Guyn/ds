@@ -1,7 +1,7 @@
 @import "base";
 $base-transition: 0.5s;
 .button {
-	color: darken($guyn-SkyblueDark, 10%);
+	color: setLightness(--base-color-primary, 40);
 	position: relative;
 	z-index: 1;
 	display: block;
@@ -13,7 +13,7 @@ $base-transition: 0.5s;
 	font-size: 1rem;
 	line-height: 1em;
 	text-decoration: none;
-	transition: $base-transition ease-in-out;
+	transition: var(--base-transition, #{$base-transition}) ease-in-out;
 	padding: 1em 1.25em;
 	position: relative;
 	background-color: transparent;
@@ -27,8 +27,10 @@ $base-transition: 0.5s;
 		top: 0;
 		border-radius: inherit;
 		z-index: 1;
-		transition: background $base-transition-bounce;
-		animation: bumpOut $base-transition-bounce forwards;
+		transition: background
+			var(--base-transition-bounce, #{$base-transition-bounce});
+		animation: bumpOut var(--base-transition-bounce, #{$base-transition-bounce})
+			forwards;
 		@at-root {
 			@keyframes bumpOut {
 				from {
@@ -41,10 +43,10 @@ $base-transition: 0.5s;
 		}
 	}
 	&.button--primary::before {
-		background-color: setLightness($guyn-SkyblueLight, 90);
+		background-color: setLightness(--base-color-primary, 90);
 	}
 	&.button--secondary::before {
-		box-shadow: 0 0 0 2px lighten($guyn-SkyblueLight, 20%) inset;
+		box-shadow: 0 0 0 2px #{setLightness(--base-color-primary, 80)} inset;
 	}
 	&:focus,
 	&:hover {
@@ -61,7 +63,8 @@ $base-transition: 0.5s;
 	}
 	&:hover {
 		.button__text {
-			animation: bumpInOut $base-transition $base-transition-bounce forwards;
+			animation: bumpInOut
+				var(--base-transition-bounce, #{$base-transition-bounce}) forwards;
 			@at-root {
 				@keyframes bumpInOut {
 					0%,
@@ -75,7 +78,8 @@ $base-transition: 0.5s;
 			}
 		}
 		&::before {
-			animation: bumpIn $base-transition-bounce forwards;
+			animation: bumpIn var(--base-transition-bounce, #{$base-transition-bounce})
+				forwards;
 			@at-root {
 				@keyframes bumpIn {
 					0% {
@@ -96,23 +100,29 @@ $base-transition: 0.5s;
 			color: setLightness($color-value, 30);
 			&.button--primary {
 				&::before {
-					background-color: setLightness($color-value, 90);
+					background-color: setLightness(--color-#{to-lower-case($color-name)}, 90);
 				}
 				&:hover::before {
-					background-color: hsl(
-						hue($color-value),
-						saturation($color-value),
-						80
-					);
+					background-color: setLightness(--color-#{to-lower-case($color-name)}, 80);
 				}
 			}
 			&.button--secondary {
 				&::before {
-					box-shadow: 0 0 0 2px setLightness($color-value, 90) inset;
+					box-shadow: 0
+						0
+						0
+						2px
+						setLightness(--color-#{to-lower-case($color-name)}, 90)
+						inset;
 				}
 
 				&:hover::before {
-					box-shadow: 0 0 0 2px setLightness($color-value, 80) inset;
+					box-shadow: 0
+						0
+						0
+						2px
+						setLightness(--color-#{to-lower-case($color-name)}, 80)
+						inset;
 				}
 			}
 		}
