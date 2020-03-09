@@ -3,7 +3,10 @@
 		<button class="settings__trigger" @click="open = !open">
 			{{ open ? "close" : "open" }}
 		</button>
-		<div class="settings__custom" v-if="styles">
+		<button class="settings__code-trigger" v-if="styles" @click="code = !code">
+			{{ code ? "</>" : "<>" }}
+		</button>
+		<div class="settings__custom" v-if="styles" :class="{ 'settings__custom--open': code}">
 			<pre><code>{{ styles }}</code></pre>
 		</div>
 		<div class="settings__container">
@@ -106,6 +109,7 @@
 					label="Border Radius"
 					v-model="settings.base_form_border_radius"
 				/>
+				<button @click="reset">Reset</button>
 			</div>
 		</div>
 		<!-- <style v-if="styles.length > 0">
@@ -139,7 +143,8 @@ export default {
 		],
 
 		// styles: [],
-		open: false
+		open: false,
+		code: true
 	}),
 	computed: {
 		allColors() {
@@ -158,8 +163,10 @@ export default {
 			}
 		}
 	},
-	mounted() {
-		console.log(this.allColors);
+	methods: {
+		reset(){
+			this.styles = []
+		}
 	},
 	watch: {
 		settings: {
@@ -173,7 +180,7 @@ export default {
 						let hsl = hexToHsl(this.settings[item]);
 						console.log(hsl);
 						styles.push([`${customProperty}`, this.settings[item]]);
-						styles.push([`${customProperty}-h`, Math.round(hsl.s * 100)]);
+						styles.push([`${customProperty}-h`, 360 * hsl.h]);
 						styles.push([
 							`${customProperty}-s`,
 							`${Math.round(hsl.s * 10000) / 100}%`
@@ -249,6 +256,7 @@ export default {
 		transform: rotate(180deg);
 	}
 
+	&__code-trigger,
 	&__trigger {
 		position: absolute;
 		transform: translateX(calc(-100% - 1em));
@@ -259,11 +267,17 @@ export default {
 		z-index: 2;
 		border: none;
 		transition: $base-transition-bounce;
-		box-shadow: 0 0 8vw 0 rgba(0, 0, 0, 0.25);
-
+		background-color: var(--base-color-light);
+		color: var(--base-color-dark);
 		&:focus {
 			outline: none;
 		}
+	}
+	&__code-trigger {
+		top: 6em;
+
+		background-color: var(--base-color-dark);
+		color: var(--base-color-light);
 	}
 	&__container {
 		position: absolute;
@@ -290,6 +304,11 @@ export default {
 		border-radius: var(--base-border-radius, $base-border-radius) 0 0
 			var(--base-border-radius, $base-border-radius);
 		font-family: "Courier New", Courier, monospace;
+		clip-path: inset(0 0 0 100%);
+		transition: clip-path var(--base-transition, #{$base-transition});
+		&--open{
+			clip-path: inset(0 0 0 0%);
+		}
 	}
 }
 </style>
