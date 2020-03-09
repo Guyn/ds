@@ -9,12 +9,12 @@ module.exports = {
 				collapsable: false,
 				children: ["page/usage/", "page/about/"]
 			},
-			// {
-			// 	title: "Assets",
-			// 	path: "/assets/",
-			// 	collapsable: false,
-			// 	children: ["assets/color/", "assets/scss/", "assets/fonts/"]
-			// },
+			{
+				title: "Assets",
+				path: "/assets/",
+				collapsable: false,
+				children: ["assets/color/", "assets/scss/", "assets/fonts/"]
+			},
 			{
 				title: "Components",
 				path: "/components/",

@@ -1,0 +1,41 @@
+@import "base";
+.modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 10;
+	height: 100vh;
+
+	pointer-events: none;
+	width: 100vw;
+
+	&--open {
+		pointer-events: all;
+		.modal__background {
+			opacity: 1;
+		}
+	}
+	&__background {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		background-color: setOpacity(--base-color-foreground, 80);
+		opacity: 0;
+		transition: var(--base-transition, #{$base-transition});
+	}
+	&__container {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		max-height: 80vh;
+		overflow: auto;
+	}
+	&__content {
+		border-radius: var(--base-border-radius, #{$base-border-radius});
+		padding: var(--base-padding, #{$base-padding});
+		background-color: var(--base-color-background);
+	}
+}
