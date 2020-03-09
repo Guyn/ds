@@ -105,8 +105,8 @@
 				<Select
 					inline
 					:options="allColors"
-					label="Text"
-					v-model="settings.base_color_text"
+					label="Foreground"
+					v-model="settings.base_color_foreground"
 				/>
 
 				<h4>Forms</h4>
@@ -226,17 +226,16 @@ export default {
 	}
 	position: fixed;
 	z-index: 10;
-	top: 4vw;
+	top: 0;
 	width: calc(100% - 8vw);
 	max-width: 480px;
 	left: 100%;
 	transform: translateX(0%);
-	border-radius: var(--base-border-radius, #{$base-border-radius});
 	background-color: var(--base-color-dark, #{$base-color-dark});
 	color: var(--base-color-light, #{$base-color-light});
 	display: block;
 	box-shadow: 0 0 8vw 0 rgba(0, 0, 0, 0.25);
-	height: calc(100vh - 8vw);
+	height: calc(100vh - 0vw);
 	transition: $base-transition-bounce;
 	&::before,
 	&::after {
@@ -303,8 +302,11 @@ export default {
 	&__custom {
 		background-color: setOpacity(--base-color-light, 50);
 		color: var(--base-color-dark);
+		border: 2px solid var(--base-color-dark);
+		border-right-width: 0;
 		padding: var(--base-padding, #{$base-padding});
 		position: absolute;
+		font-size: 0.875em;
 		right: 100%;
 		top: var(--base-border-radius, $base-border-radius);
 		border-radius: var(--base-border-radius, $base-border-radius) 0 0

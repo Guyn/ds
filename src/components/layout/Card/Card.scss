@@ -41,12 +41,12 @@
 	}
 	@each $color-name, $color-value in $colors {
 		&--#{to-lower-case($color-name)} {
-			background-color: setLightness($color-value, 80);
+			background-color: setLightness(--color-#{to-lower-case($color-name)}, 80);
 			.card__title {
-				color: setLightness($color-value, 20);
+				color: setLightness(--color-#{to-lower-case($color-name)}, 20);
 			}
 			&.card--is-link:hover {
-				background-color: setLightness($color-value, 85);
+				background-color: setLightness(--color-#{to-lower-case($color-name)}, 85);
 			}
 		}
 	}

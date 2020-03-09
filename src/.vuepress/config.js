@@ -27,7 +27,8 @@ module.exports = {
 						collapsable: false,
 						children: [
 							"components/general/Button/",
-							"components/general/Notification/"
+							"components/general/Notification/",
+							"components/general/Modal/"
 						]
 					},
 					{

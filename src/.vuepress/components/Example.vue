@@ -60,7 +60,7 @@ export default {
 		z-index: 1;
 		overflow: hidden;
 		width: 100%;
-		background-color: setLightness(--base-color-light, 80);
+		background-color: var(--base-color-light);
 		border-radius: 0 0 $base-border-radius $base-border-radius;
 		opacity: 0.25;
 		transition: all $base-transition;

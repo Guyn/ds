@@ -6,9 +6,6 @@ $base-border: #{$base-border-width} solid #{$base-border-color} !default;
 $base-padding: 2em !default;
 $base-margin: 1em !default;
 
-// Text
-$base-text-color: currentColor !default;
-
 // Transition
 $base-cubic-bezier: ease-in-out !default;
 $base-cubic-bounce: cubic-bezier(0.15, 0.65, 0.65, 1.4) !default;
@@ -23,7 +20,7 @@ $base-color-tertiary: color(_Orange) !default;
 $base-color-dark: color(_Plum) !default;
 $base-color-light: color(_Ice) !default;
 $base-color-background: color(_White) !default;
-$base-color-text: currentColor !default;
+$base-color-foreground: currentColor !default;
 
 // Form specific
 $base-form-border: 1px solid currentColor !default;

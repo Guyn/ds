@@ -9,5 +9,5 @@
 
 body {
 	background-color: var(--base-color-background, #{$base-color-background});
-	color: var(--base-color-text, #{$base-color-text});
+	color: var(--base-color-foreground, #{$base-color-foreground});
 }

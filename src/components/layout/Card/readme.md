@@ -91,15 +91,15 @@ A default card is just a little block.
 <template slot="code">
 
 ```html
-<Card color="red" title="I am Red card" image="[image url]"
-	>And this is the content</Card
->
-<Card color="blue" title="I am Blue card" image="[image url]"
-	>And this is the content</Card
->
-<Card color="green" title="I am Green card" image="[image url]"
-	>And this is the content</Card
->
+<Card color="red" title="I am Red card" image="[image url]">
+	And this is the content
+</Card>
+<Card color="blue" title="I am Blue card" image="[image url]">
+	And this is the content
+</Card>
+<Card color="green" title="I am Green card" image="[image url]">
+	And this is the content
+</Card>
 ```
 
 </template>

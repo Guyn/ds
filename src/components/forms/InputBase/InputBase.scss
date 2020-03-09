@@ -41,7 +41,7 @@
 				&::placeholder {
 					color: var(
 						--base-form-text-color,
-						var(--base-text-color, #{$base-text-color})
+						var(--base-color-foreground, #{$base-color-foreground})
 					);
 					font-style: italic;
 					opacity: 0.5;
@@ -62,7 +62,7 @@
 				background-color: transparent;
 				color: var(
 					--base-form-text-color,
-					var(--base-text-color, #{$base-text-color})
+					var(--base-color-foreground, #{$base-color-foreground})
 				);
 				font-size: 1em;
 				line-height: 1;
