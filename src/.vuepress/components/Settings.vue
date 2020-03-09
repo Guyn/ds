@@ -40,40 +40,64 @@
 				<h4>Colors</h4>
 				<Select
 					inline
-					:options="colors"
+					:options="allColors"
 					label="Primary"
 					v-model="settings.base_color_primary"
 				/>
 				{{ settings.base_color_primary }}
 				<Select
 					inline
-					:options="colors"
+					:options="allColors"
 					label="Secondary"
 					v-model="settings.base_color_secondary"
 				/>
 				<Select
 					inline
-					:options="colors"
+					:options="allColors"
 					label="Tertiary"
 					v-model="settings.base_color_tertiary"
 				/>
 				<Select
 					inline
-					:options="colors"
+					:options="allColors"
 					label="Warning"
 					v-model="settings.base_color_warning"
 				/>
 				<Select
 					inline
-					:options="colors"
+					:options="allColors"
 					label="Success"
 					v-model="settings.base_color_success"
 				/>
 				<Select
 					inline
-					:options="colors"
+					:options="allColors"
 					label="Error"
 					v-model="settings.base_color_error"
+				/>
+				<Select
+					inline
+					:options="allColors"
+					label="Light"
+					v-model="settings.base_color_light"
+				/>
+				<Select
+					inline
+					:options="allColors"
+					label="Dark"
+					v-model="settings.base_color_dark"
+				/>
+				<Select
+					inline
+					:options="allColors"
+					label="Background"
+					v-model="settings.base_color_background"
+				/>
+				<Select
+					inline
+					:options="allColors"
+					label="Text"
+					v-model="settings.base_color_text"
 				/>
 
 				<h4>Forms</h4>
@@ -97,6 +121,7 @@
 
 <script>
 import { hexToHsl } from "../../../helpers/color";
+import Colors from "../../assets/color/base.json";
 export default {
 	components: {
 		InputText: () => import("../../components/forms/InputText"),
@@ -112,10 +137,18 @@ export default {
 			{ label: "Green", value: "#00ff00" },
 			{ label: "Blue", value: "#0000ff" }
 		],
+
 		// styles: [],
 		open: false
 	}),
 	computed: {
+		allColors() {
+			const colors = Object.keys(Colors).map(color => {
+				return { label: color, value: Colors[color] };
+			});
+
+			return colors;
+		},
 		styles: {
 			get() {
 				return this.$store.getters["getStyle"];
@@ -124,6 +157,9 @@ export default {
 				this.$store.dispatch("UPDATE_STYLE", value);
 			}
 		}
+	},
+	mounted() {
+		console.log(this.allColors);
 	},
 	watch: {
 		settings: {
@@ -137,9 +173,15 @@ export default {
 						let hsl = hexToHsl(this.settings[item]);
 						console.log(hsl);
 						styles.push([`${customProperty}`, this.settings[item]]);
-						styles.push([`${customProperty}-h`, hsl.h * 360]);
-						styles.push([`${customProperty}-s`, `${hsl.s * 100}%`]);
-						styles.push([`${customProperty}-l`, `${hsl.l * 100}%`]);
+						styles.push([`${customProperty}-h`, Math.round(hsl.s * 36000) / 100]);
+						styles.push([
+							`${customProperty}-s`,
+							`${Math.round(hsl.s * 10000) / 100}%`
+						]);
+						styles.push([
+							`${customProperty}-l`,
+							`${Math.round(hsl.l * 10000) / 100}%`
+						]);
 					} else {
 						styles.push([
 							`${item.replace(new RegExp("_", "g"), "-")}`,

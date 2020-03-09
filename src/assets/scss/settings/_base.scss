@@ -23,6 +23,7 @@ $base-color-tertiary: color(_Orange) !default;
 $base-color-dark: color(_Plum) !default;
 $base-color-light: color(_Ice) !default;
 $base-color-background: color(_White) !default;
+$base-color-text: currentColor !default;
 
 // Form specific
 $base-form-border: 1px solid currentColor !default;

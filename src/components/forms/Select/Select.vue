@@ -46,6 +46,9 @@ export default {
 			type: [Array, Object],
 			default: () => []
 		}
+	},
+	mounted() {
+		console.log(this.options[0]);
 	}
 };
 </script>
