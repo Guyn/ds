@@ -211,7 +211,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "base";
+@import "../../assets/scss/base";
 
 .settings {
 	&--open {
