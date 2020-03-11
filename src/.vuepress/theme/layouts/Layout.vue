@@ -180,6 +180,9 @@ export default {
 		color: white;
 		z-index: 10;
 		overflow: hidden;
+		@media #{$medium-up} {
+			display: none;
+		}
 		.logo {
 			position: absolute;
 			z-index: 2;
