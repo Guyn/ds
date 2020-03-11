@@ -7,14 +7,13 @@
 	>
 		<!-- <Navbar v-if="shouldShowNavbar" @toggle-sidebar="toggleSidebar" /> -->
 		<div class="layout__header">
-			<button
-				class="toggle"
-				:class="{ 'toggle--active': isSidebarOpen }"
-				@click="toggleSidebar"
-			>
-				<span></span>
-			</button>
+			<ToggleMenu :active="isSidebarOpen" @click.native="toggleSidebar" />
+			<h3 class="layout__header-title"><strong>Guyn</strong> Design System</h3>
 			<Logo class="logo" />
+			<ToggleSections :active="isSectionsOpen" @click.native="toggleSections" />
+		</div>
+		<div class="layout__sections">
+			Haiiii
 		</div>
 		<div class="layout__left" :class="{ 'layout__left--active': isSidebarOpen }">
 			<Sidebar :items="sidebarItems" @toggle-sidebar="toggleSidebar">
@@ -49,6 +48,8 @@
 import Home from "@theme/components/Home.vue";
 // import Navbar from "@theme/components/Navbar.vue";
 import Page from "@theme/components/Page.vue";
+import ToggleMenu from "../../components/ToggleMenu.vue";
+import ToggleSections from "../../components/ToggleSections.vue";
 import Sidebar from "@theme/components/Sidebar.vue";
 import { resolveSidebarItems } from "../util";
 
@@ -58,14 +59,16 @@ export default {
 	components: {
 		Home,
 		Page,
-		Sidebar
+		Sidebar,
+		ToggleMenu
 		// Navbar
 	},
 
 	data() {
 		return {
 			currentValue: "test",
-			isSidebarOpen: false
+			isSidebarOpen: false,
+			isSectionsOpen: false
 		};
 	},
 
@@ -175,7 +178,7 @@ export default {
 		width: 100vw;
 		height: 3rem;
 		display: flex;
-		flex-direction: column-reverse;
+		justify-content: space-between;
 		background-color: var(--base-color-dark, #{$base-color-dark});
 		color: white;
 		z-index: 10;
@@ -185,7 +188,7 @@ export default {
 		}
 		.logo {
 			position: absolute;
-			z-index: 2;
+			z-index: -1;
 			width: 3rem;
 			height: 3rem;
 			--logo-color: var(--color-primary);
@@ -193,58 +196,12 @@ export default {
 			top: 50%;
 			transform: translate(-50%, -50%) scale(1.25);
 		}
-		.toggle {
-			width: 3rem;
-			height: 3rem;
+		&-title {
 			position: relative;
-			-webkit-appearance: none;
-			background: transparent;
-			border: none;
-			color: white;
-			&:focus {
-				outline: none;
-				span::before,
-				span::after {
-					background-color: var(--base-color-primary);
-				}
-			}
-			span {
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				width: 1.5rem;
-				height: 2px;
-				transform: translate(-50%, -50%);
-				&::before,
-				&::after {
-					position: absolute;
-					top: 50%;
-					left: 50%;
-					transform: translate(-50%, -50%);
-					content: "";
-					display: block;
-					width: 100%;
-					height: 100%;
-					background-color: currentColor;
-					transition: transform $base-transition-bounce;
-				}
-				&::before {
-					transform: translate(-50%, calc(-50% - 3px));
-				}
-				&::after {
-					transform: translate(-50%, calc(-50% + 3px));
-				}
-			}
-			&--active {
-				span {
-					&::before {
-						transform: translate(-50%, calc(-50%)) rotate(-45deg);
-					}
-					&::after {
-						transform: translate(-50%, calc(-50%)) rotate(45deg);
-					}
-				}
-			}
+			z-index: 20;
+			font-size: 1rem;
+			font-weight: normal;
+			line-height: 3rem;
 		}
 	}
 	.layout__left {
