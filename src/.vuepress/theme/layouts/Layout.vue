@@ -6,9 +6,17 @@
 		@touchend="onTouchEnd"
 	>
 		<!-- <Navbar v-if="shouldShowNavbar" @toggle-sidebar="toggleSidebar" /> -->
-		<div class="sidebar__toggle" @click="toggleSidebar(false)" />
-
-		<div class="layout__left">
+		<div class="layout__header">
+			<button
+				class="toggle"
+				:class="{ 'toggle--active': isSidebarOpen }"
+				@click="toggleSidebar"
+			>
+				<span></span>
+			</button>
+			<Logo class="logo" />
+		</div>
+		<div class="layout__left" :class="{ 'layout__left--active': isSidebarOpen }">
 			<Sidebar :items="sidebarItems" @toggle-sidebar="toggleSidebar">
 				<template #top>
 					<slot name="sidebar-top" />
@@ -119,7 +127,7 @@ export default {
 
 	methods: {
 		toggleSidebar(to) {
-			this.isSidebarOpen = typeof to === "boolean" ? to : !this.isSidebarOpen;
+			this.isSidebarOpen = !this.isSidebarOpen;
 			this.$emit("toggle-sidebar", this.isSidebarOpen);
 		},
 
@@ -149,20 +157,111 @@ export default {
 @import "../styles/index.scss";
 
 .layout--default {
-	display: grid;
-	grid-template-columns: minmax(15rem, 25%) auto;
-	grid-template-rows: auto;
-	grid-template-areas:
-		"header header"
-		"sidebar page"
-		"footer footer";
-	min-height: 100vh;
+	display: block;
 
-	.layout__left {
+	@media #{$medium-up} {
+		display: grid;
+		grid-template-columns: minmax(15rem, 25%) auto;
+		grid-template-rows: auto;
+		grid-template-areas:
+			"header header"
+			"sidebar page"
+			"footer footer";
 		min-height: 100vh;
-		grid-area: sidebar;
+	}
+
+	.layout__header {
+		position: fixed;
+		width: 100vw;
+		height: 3rem;
 		display: flex;
-		justify-content: flex-end;
+		flex-direction: column-reverse;
+		background-color: var(--base-color-dark, #{$base-color-dark});
+		color: white;
+		z-index: 10;
+		overflow: hidden;
+		.logo {
+			position: absolute;
+			z-index: 2;
+			width: 3rem;
+			height: 3rem;
+			--logo-color: var(--color-primary);
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%) scale(1.25);
+		}
+		.toggle {
+			width: 3rem;
+			height: 3rem;
+			position: relative;
+			-webkit-appearance: none;
+			background: transparent;
+			border: none;
+			color: white;
+			&:focus {
+				outline: none;
+				span::before,
+				span::after {
+					background-color: var(--base-color-primary);
+				}
+			}
+			span {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 1.5rem;
+				height: 2px;
+				transform: translate(-50%, -50%);
+				&::before,
+				&::after {
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+					content: "";
+					display: block;
+					width: 100%;
+					height: 100%;
+					background-color: currentColor;
+					transition: transform $base-transition-bounce;
+				}
+				&::before {
+					transform: translate(-50%, calc(-50% - 3px));
+				}
+				&::after {
+					transform: translate(-50%, calc(-50% + 3px));
+				}
+			}
+			&--active {
+				span {
+					&::before {
+						transform: translate(-50%, calc(-50%)) rotate(-45deg);
+					}
+					&::after {
+						transform: translate(-50%, calc(-50%)) rotate(45deg);
+					}
+				}
+			}
+		}
+	}
+	.layout__left {
+		@media #{$small-only} {
+			position: fixed;
+			z-index: 2;
+			height: 100vh;
+			overflow: auto;
+			clip-path: inset(0 100% 0 0);
+			transition: clip-path $base-transition;
+			&--active {
+				clip-path: inset(0 0% 0 0);
+			}
+		}
+		@media #{$medium-up} {
+			min-height: 100vh;
+			grid-area: sidebar;
+			display: flex;
+			justify-content: flex-end;
+		}
 		aside {
 			width: 15rem;
 		}

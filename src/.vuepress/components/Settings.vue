@@ -277,6 +277,11 @@ export default {
 		&:focus {
 			outline: none;
 		}
+		@media #{$small-only}{
+			position: fixed;
+			top: auto;
+			bottom: 1rem;
+		}
 	}
 	&__code-trigger {
 		top: 6em;

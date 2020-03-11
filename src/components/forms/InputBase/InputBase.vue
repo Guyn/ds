@@ -3,7 +3,8 @@
 export default {
 	data: () => ({
 		focus: false,
-		ID: null
+		ID: null,
+		currentValue: null
 	}),
 	created() {
 		this.ID = this.createID();
