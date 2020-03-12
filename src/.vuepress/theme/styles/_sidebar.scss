@@ -6,6 +6,10 @@
 	border-right: var(--base-border, #{$base-border});
 	color: var(--sidebar-background, #{setLightness("--base-color-primary", 30)});
 	padding: 1rem;
+	@media #{$small-only} {
+		background-color: var(--base-color-dark, #{$base-color-dark});
+		color: var(--sidebar-light, #{setLightness("--base-color-primary", 80)});
+	}
 	&__toggle {
 		position: fixed;
 		border: 1px solid red;
@@ -37,6 +41,14 @@
 			display: block;
 			transform: scale(0.5);
 			transition: all $base-transition-bounce;
+			@media #{$small-only} {
+				background-color: var(
+					--sidebar-dark,
+					#{setLightness("--base-color-dark", 20)}
+				);
+				color: var(--sidebar-light, #{setLightness("--base-color-primary", 90)});
+				box-shadow: 0 0 1rem 0 #{setLightness("--base-color-dark", 5)};
+			}
 		}
 		&--has-active,
 		&--open {

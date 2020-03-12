@@ -224,16 +224,16 @@ export default {
 		position: fixed;
 		top: 50%;
 		left: 50%;
-		border-radius: $base-border-radius * 2;
+		// border-radius: $base-border-radius * 2;
 		width: 80vmin;
 		height: 80vmin;
-		box-shadow: 0 0 12vw 0 setLightness(--base-color-light, 50),
-			0 -4px 0 0 setLightness(--base-color-light, 80) inset;
+		// box-shadow: 0 0 12vw 0 setLightness(--base-color-light, 50),
+		// 	0 -4px 0 0 setLightness(--base-color-light, 80) inset;
 		z-index: 100;
 		padding: 0.5em;
-		background-color: var(--base-color-light);
+		background-color: var(--base-color-dark);
 		z-index: 10;
-		transform: translate(-50%, -50%) scale(0.5);
+		transform: translate(-50%, -25%) scale(0.5);
 		opacity: 0;
 		pointer-events: none;
 		transition: transform $base-transition-bounce,
@@ -269,8 +269,10 @@ export default {
 			height: 100vh;
 			overflow: auto;
 			clip-path: inset(0 100% 0 0);
+			pointer-events: none;
 			transition: clip-path $base-transition;
 			&--active {
+				pointer-events: all;
 				clip-path: inset(0 0% 0 0);
 			}
 		}
@@ -282,6 +284,7 @@ export default {
 		}
 		aside {
 			width: 15rem;
+			height: 100%;
 		}
 	}
 	.page {
