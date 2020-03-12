@@ -26,6 +26,9 @@
 		"type": "git",
 		"url": "git+ssh://git@github.com/silvandiepen/guyn-ds.git"
 	},
+	"publishConfig": {
+		"registry": "https://npm.pkg.github.com/"
+	},
 	"keywords": [
 		"Design",
 		"System",

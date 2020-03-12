@@ -1,0 +1,20 @@
+@import "base";
+.loading {
+	width: 4em;
+	height: 4em;
+	border-radius: 50%;
+	animation: goRound 5s infinite;
+	border-width: 1em;
+	border-color: transparent transparent currentColor currentColor;
+	border-style: dashed;
+	@at-root {
+		@keyframes goRound {
+			from {
+				transform: rotate(0deg);
+			}
+			to {
+				transform: rotate(360deg);
+			}
+		}
+	}
+}
