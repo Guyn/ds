@@ -130,7 +130,7 @@
 </template>
 
 <script>
-import { hexToHsl } from "../../../helpers/color";
+import { hexToHsl } from "../../../scripts/helpers/color";
 import Colors from "../../assets/color/base.json";
 export default {
 	components: {
