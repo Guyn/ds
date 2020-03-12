@@ -44,6 +44,7 @@ export default {
 		width: 1.5rem;
 		height: 2px;
 		transform: translate(-50%, -50%);
+		transition: transform $base-transition-bounce;
 		&::before,
 		&::after {
 			position: absolute;
@@ -66,6 +67,7 @@ export default {
 	}
 	&--active {
 		span {
+			transform: translate(-50%, -50%) rotate(90deg);
 			&::before {
 				transform: translate(-50%, calc(-50%)) rotate(-45deg);
 			}

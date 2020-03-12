@@ -1,5 +1,5 @@
 <template>
-	<button class="sections-menu" :class="{ 'toggle-menu--active': isActive }">
+	<button class="sections-menu" :class="{ 'sections-menu--active': isActive }">
 		<span></span>
 	</button>
 </template>
@@ -32,10 +32,7 @@ export default {
 	color: white;
 	&:focus {
 		outline: none;
-		span::before,
-		span::after {
-			color: var(--base-color-primary);
-		}
+		color: var(--base-color-primary);
 	}
 	span {
 		position: absolute;
@@ -43,7 +40,7 @@ export default {
 		left: 50%;
 		width: 1.25rem;
 		height: 3px;
-		transform: translate(-50%, -50%);
+		transform: translate(-50%, -50%) rotate(0deg);
 		background-image: linear-gradient(to bottom, currentColor, currentColor),
 			linear-gradient(to bottom, currentColor, currentColor),
 			linear-gradient(to bottom, currentColor, currentColor),
@@ -52,6 +49,7 @@ export default {
 		background-size: 3px 3px, 3px 3px, 3px 3px;
 		background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
 		background-position: 0 0, 50% 0, 100% 0, calc(100%) 0;
+		transition: transform $base-transition-bounce;
 
 		&::before,
 		&::after {
@@ -75,11 +73,12 @@ export default {
 	}
 	&--active {
 		span {
+			transform: translate(-50%, -50%) rotate(90deg);
 			&::before {
-				transform: translate(-50%, calc(-50%)) rotate(-45deg);
+				transform: translate(-50%, calc(-50%)) rotate(-60deg);
 			}
 			&::after {
-				transform: translate(-50%, calc(-50%)) rotate(45deg);
+				transform: translate(-50%, calc(-50%)) rotate(60deg);
 			}
 		}
 	}
