@@ -13,6 +13,16 @@
 			margin-bottom: 0;
 			padding: var(--base-padding, #{$base-padding});
 			// text-align: center;
+			& + div {
+				margin: 0 calc(var(--base-padding, #{$base-padding}) * -1);
+				margin-bottom: 2em;
+				pre {
+					background-color: white;
+					margin: 0;
+					font-size: 12px;
+					border-bottom: var(--base-border, #{$base-border});
+				}
+			}
 		}
 	}
 }

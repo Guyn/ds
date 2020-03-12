@@ -267,7 +267,6 @@ export default {
 			position: fixed;
 			z-index: 2;
 			height: 100vh;
-			overflow: auto;
 			clip-path: inset(0 100% 0 0);
 			pointer-events: none;
 			transition: clip-path $base-transition;
@@ -285,6 +284,7 @@ export default {
 		aside {
 			width: 15rem;
 			height: 100%;
+			overflow: scroll;
 		}
 	}
 	.page {
