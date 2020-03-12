@@ -65,9 +65,8 @@ $named-sizes: (
 );
 
 .row {
-	width: 100%;
-	margin: auto;
 	display: grid;
+	width: 100%;
 	grid-auto-flow: row;
 	grid-column-gap: var(--column-gap, var(--gap, default-value("grid-gap", 0)));
 	grid-row-gap: var(--row-gap, var(--gap, default-value("grid-gap", 0)));
@@ -76,6 +75,7 @@ $named-sizes: (
 		1fr
 	);
 	grid-template-rows: auto;
+	margin: auto;
 	> .column {
 		grid-column: span #{$grid-parts};
 		@each $bp-name, $bp-values in $mq {

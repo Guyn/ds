@@ -15,19 +15,19 @@
 			position: absolute;
 			top: 50%;
 			right: 1em;
-			text-transform: uppercase;
-			opacity: 0.5;
 			font-size: 0.75em;
+			text-transform: uppercase;
 			transform: translateY(-50%);
+			opacity: 0.5;
 		}
 
 		&__input {
+			position: relative;
 			border: var(--base-form-border, var(--base-border, #{$base-border}));
 			border-radius: var(
 				--base-form-border-radius,
 				var(--base-border-radius, #{$base-border-radius})
 			);
-			position: relative;
 			padding: 0
 				var(--base-form-padding, var(--base-padding, #{$base-form-padding}));
 
@@ -38,6 +38,21 @@
 			textarea,
 			select,
 			input {
+				width: 100%;
+				border: none;
+				background-color: transparent;
+				color: var(
+					--base-form-text-color,
+					var(--base-color-foreground, #{$base-color-foreground})
+				);
+				font-size: 1em;
+				line-height: 1;
+				-webkit-appearance: none;
+				padding: var(
+						--base-form-padding,
+						var(--base-padding, #{$base-form-padding})
+					)
+					0;
 				&::placeholder {
 					color: var(
 						--base-form-text-color,
@@ -52,21 +67,6 @@
 						opacity: 0.5;
 					}
 				}
-				padding: var(
-						--base-form-padding,
-						var(--base-padding, #{$base-form-padding})
-					)
-					0;
-				border: none;
-				width: 100%;
-				background-color: transparent;
-				color: var(
-					--base-form-text-color,
-					var(--base-color-foreground, #{$base-color-foreground})
-				);
-				font-size: 1em;
-				line-height: 1;
-				-webkit-appearance: none;
 				&:focus {
 					outline: none;
 				}

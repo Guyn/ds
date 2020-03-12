@@ -17,17 +17,17 @@
 		}
 	}
 	&__instructions {
-		margin-top: 0.5em;
-		opacity: 0.5;
 		font-size: 0.875em;
+		opacity: 0.5;
+		margin-top: 0.5em;
 	}
 	&--inline {
-		justify-content: flex-start;
 		flex-direction: row-reverse !important;
+		justify-content: flex-start;
 		.input-field__label {
 			width: 33.33%;
-			padding: 1em;
 			line-height: 1;
+			padding: 1em;
 			margin-bottom: 0 !important;
 		}
 		.input-field__select,

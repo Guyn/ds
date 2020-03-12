@@ -7,19 +7,19 @@ td {
 		padding: 0 0.25em;
 
 		&::before {
+			content: "";
+			position: absolute;
+			top: -0.25em;
+			left: -0.25em;
 			z-index: -1;
+			display: block;
+			width: calc(100% + 0.5em);
+			height: calc(100% + 0.5em);
+			border-radius: $base-border-radius;
 			background-color: var(
 				--code-background,
 				#{setLightness($base-color-secondary, 90)}
 			);
-			content: "";
-			border-radius: $base-border-radius;
-			display: block;
-			width: calc(100% + 0.5em);
-			height: calc(100% + 0.5em);
-			position: absolute;
-			left: -0.25em;
-			top: -0.25em;
 		}
 	}
 }

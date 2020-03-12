@@ -1,0 +1,32 @@
+{
+	"plugins": ["stylelint-order"],
+	"rules": {
+		"at-rule-no-unknown": [
+			true,
+			{
+				"ignoreAtRules": [
+					"if",
+					"for",
+					"else",
+					"each",
+					"mixin",
+					"extend",
+					"include",
+					"content",
+					"at-root",
+					"function",
+					"return",
+					"warn",
+					"debug"
+				]
+			}
+		],
+		"order/order": [
+			"custom-properties",
+			"dollar-variables",
+			"declarations",
+			"rules"
+		]
+	},
+	"extends": ["stylelint-logical-order"]
+}

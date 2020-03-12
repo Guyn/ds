@@ -4,12 +4,11 @@
 		&::after {
 			content: "";
 			position: absolute;
-			right: 1em;
 			top: 50%;
+			right: 1em;
 			display: block;
-			height: 0.5em;
 			width: 0.75em;
-			transform: translateY(-50%);
+			height: 0.5em;
 			background-image: linear-gradient(
 					to left bottom,
 					currentColor 50%,
@@ -18,8 +17,9 @@
 				linear-gradient(to right bottom, currentColor 50%, transparent 50%);
 
 			background-repeat: no-repeat, no-repeat;
-			background-size: 50% 100%, 50% 100%;
 			background-position: 0 0, 100% 0;
+			background-size: 50% 100%, 50% 100%;
+			transform: translateY(-50%);
 		}
 	}
 }

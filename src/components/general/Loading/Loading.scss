@@ -2,11 +2,11 @@
 .loading {
 	width: 4em;
 	height: 4em;
+	border-width: 1em;
+	border-style: dashed;
+	border-color: transparent transparent currentColor currentColor;
 	border-radius: 50%;
 	animation: goRound 5s infinite;
-	border-width: 1em;
-	border-color: transparent transparent currentColor currentColor;
-	border-style: dashed;
 	@at-root {
 		@keyframes goRound {
 			from {

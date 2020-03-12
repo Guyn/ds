@@ -8,14 +8,14 @@
 		}
 	}
 	&__label {
+		position: relative;
+		top: -0.35em;
+		border-radius: $base-border-radius;
 		background-color: setLightness($base-color-primary, 80);
 		color: setLightness($base-color-primary, 30);
-		padding: 0.25em 0.35em;
-		line-height: 1;
 		font-size: 0.5em;
-		border-radius: $base-border-radius;
-		top: -0.35em;
-		position: relative;
+		line-height: 1;
+		padding: 0.25em 0.35em;
 	}
 }
 .color--current {

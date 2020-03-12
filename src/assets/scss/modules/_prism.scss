@@ -6,16 +6,16 @@
 
 code[class*="language-"],
 pre[class*="language-"] {
-	color: black;
 	background: none;
-	font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+	color: black;
 	font-size: 1em;
-	text-align: left;
-	white-space: pre;
-	word-spacing: normal;
-	word-break: normal;
-	word-wrap: normal;
+	font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
 	line-height: 1.5;
+	white-space: pre;
+	text-align: left;
+	word-wrap: normal;
+	word-break: normal;
+	word-spacing: normal;
 
 	-moz-tab-size: 4;
 	-o-tab-size: 4;
@@ -39,11 +39,11 @@ pre[class*="language-"] > code {
 }
 
 code[class*="language"] {
-	max-height: inherit;
-	height: inherit;
-	padding: 0 1em;
 	display: block;
+	height: inherit;
+	max-height: inherit;
 	overflow: auto;
+	padding: 0 1em;
 }
 
 /* Margin bottom to accommodate shadow */
@@ -58,12 +58,12 @@ pre[class*="language-"] {
 /* Inline code */
 :not(pre) > code[class*="language-"] {
 	position: relative;
-	padding: 0.2em;
+	display: inline;
+	border: 1px solid rgba(0, 0, 0, 0.1);
 	border-radius: 0.3em;
 	color: #c92c2c;
-	border: 1px solid rgba(0, 0, 0, 0.1);
-	display: inline;
 	white-space: normal;
+	padding: 0.2em;
 }
 
 .token.comment,
@@ -103,8 +103,8 @@ pre[class*="language-"] {
 .token.entity,
 .token.url,
 .token.variable {
-	color: var(--color-brown);
 	background: rgba(255, 255, 255, 0.5);
+	color: var(--color-brown);
 }
 
 .token.atrule,
@@ -121,8 +121,8 @@ pre[class*="language-"] {
 
 .language-css .token.string,
 .style .token.string {
-	color: var(--color-brown);
 	background: rgba(255, 255, 255, 0.5);
+	color: var(--color-brown);
 }
 
 .token.important {

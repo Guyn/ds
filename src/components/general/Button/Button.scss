@@ -1,32 +1,32 @@
 @import "base";
 $base-transition: 0.5s;
 .button {
-	color: setLightness(--base-color-primary, 40);
+	position: relative;
 	position: relative;
 	z-index: 1;
 	display: block;
 	border: none;
 	border-radius: 1.5em;
-	// color: var(--bg);
-	margin: 1rem;
+	background-color: transparent;
+	color: setLightness(--base-color-primary, 40);
 	font-weight: 600;
 	font-size: 1rem;
 	line-height: 1em;
 	text-decoration: none;
 	transition: var(--base-transition, #{$base-transition}) ease-in-out;
+	// color: var(--bg);
+	margin: 1rem;
 	padding: 1em 1.25em;
-	position: relative;
-	background-color: transparent;
 	&::before {
 		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 1;
+		display: block;
 		width: 100%;
 		height: 100%;
-		display: block;
-		position: absolute;
-		left: 0;
-		top: 0;
 		border-radius: inherit;
-		z-index: 1;
 		transition: background
 			var(--base-transition-bounce, #{$base-transition-bounce});
 		animation: bumpOut var(--base-transition-bounce, #{$base-transition-bounce})

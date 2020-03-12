@@ -6,10 +6,18 @@
 	);
 	--notification-background: #{setLightness(--base-color-notification, 80)};
 	--notification-text: #{setLightness(--base-color-notification, 20)};
-	padding: 1em 1em 1em 1.5em;
 	border-radius: 0 var(--base-border-radius, #{$base-border-radius})
 		var(--base-border-radius, #{$base-border-radius})
 		var(--base-border-radius, #{$base-border-radius});
+	background-color: var(--notification-background);
+	background-image: linear-gradient(
+		var(--notification-color),
+		var(--notification-color)
+	);
+	background-repeat: repeat-y;
+	background-size: 0.5em 100%;
+	color: var(--notification-text);
+	padding: 1em 1em 1em 1.5em;
 	&__title {
 		color: var(--notification-color);
 	}
@@ -28,12 +36,4 @@
 		--notification-background: #{setLightness(--base-color-success, 80)};
 		--notification-text: #{setLightness(--base-color-success, 20)};
 	}
-	background-image: linear-gradient(
-		var(--notification-color),
-		var(--notification-color)
-	);
-	background-size: 0.5em 100%;
-	background-repeat: repeat-y;
-	background-color: var(--notification-background);
-	color: var(--notification-text);
 }
