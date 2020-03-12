@@ -4,4 +4,15 @@
 .page__content {
 	padding: var(--base-padding, #{$base-padding});
 	min-height: 100vh;
+	@media #{$small-only} {
+		padding-top: calc(var(--base-padding, #{$base-padding}) + 3rem);
+		& > h1 {
+			font-size: 1em;
+			background-color: setLightness(--base-color-dark, 10);
+			margin: calc(var(--base-padding, #{$base-padding}) * -1);
+			margin-bottom: 0;
+			padding: var(--base-padding, #{$base-padding});
+			// text-align: center;
+		}
+	}
 }

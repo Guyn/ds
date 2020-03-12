@@ -136,6 +136,7 @@ export default {
 	mounted() {
 		this.$router.afterEach(() => {
 			this.isSidebarOpen = false;
+			this.isSectionsOpen = false;
 		});
 	},
 
@@ -223,7 +224,6 @@ export default {
 		position: fixed;
 		top: 50%;
 		left: 50%;
-		transform: translate(-50%, -50%);
 		border-radius: $base-border-radius * 2;
 		width: 80vmin;
 		height: 80vmin;
@@ -233,13 +233,15 @@ export default {
 		padding: 0.5em;
 		background-color: var(--base-color-light);
 		z-index: 10;
-		transform: scale(0.5);
+		transform: translate(-50%, -50%) scale(0.5);
 		opacity: 0;
 		pointer-events: none;
-		transition: transform $base-transition-bounce;
-		&--open {
-			transform: scale(1);
-			opacity: 0;
+		transition: transform $base-transition-bounce,
+			opacity 0 #{$base-transition-time}s;
+		&--active {
+			transform: translate(-50%, -50%) scale(1);
+			opacity: 1;
+			transition: transform $base-transition-bounce;
 		}
 		ul {
 			display: grid;
