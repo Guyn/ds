@@ -7,7 +7,8 @@ export const DefaultProps = {
 	type: { type: String, default: null },
 	instructions: { type: String, default: null },
 	value: { type: String, default: null },
-	inline: { type: Boolean, default: false }
+	inline: { type: Boolean, default: false },
+	small: { type: Boolean, default: false }
 };
 export const TextProps = {
 	placeholder: { type: String, default: " " },
@@ -38,6 +39,10 @@ export const FieldProps = {
 		default: null
 	},
 	inline: {
+		type: Boolean,
+		default: false
+	},
+	small: {
 		type: Boolean,
 		default: false
 	}

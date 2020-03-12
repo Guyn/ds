@@ -3,7 +3,8 @@
 		class="input-field"
 		:class="[
 			type ? `input-field--${type}` : null,
-			inline ? `input-field--inline` : null,
+			{ 'input-field--inline': inline },
+			{ 'input-field--small': small },
 			{ 'input-field--focus': focus },
 			{ 'input-field--touched': touched }
 		]"

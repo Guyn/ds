@@ -21,9 +21,13 @@ The default checkbox.
 </Example>
 
 <Example title="placeholder">
-<InputText label="First Name" placeholder="John Doe"/>
+<InputText label="First Name" placeholder="John"/>
+</Example>
+<Example title="Small">
+<InputText label="Last Name" placeholder="Doe" small />
 </Example>
 
 <Example title="Instructions">
 <InputText label="E-mail address" placeholder="john@doe.com" instructions="Fill in your e-mail address name here, it is in this case, used just as an example" />
 </Example>
+

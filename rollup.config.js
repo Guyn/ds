@@ -17,50 +17,62 @@ import path from "path";
 console.log(path.resolve(__dirname, "/src/assets/scss/base.scss"));
 
 const includePathOptions = {
-  include: {},
-  paths: ["src", "src/components/", "src/assets/", "src/assets/scss"],
-  external: [],
-  extensions: [".js", ".svg", ".vue", ".scss", ".css"]
+	include: {},
+	paths: ["src", "src/components/", "src/assets/", "src/assets/scss"],
+	external: [],
+	extensions: [".js", ".svg", ".vue", ".scss", ".css"]
 };
 
 export default {
-  input: "src/components/index.js",
-  output: [
-    {
-      file: pkg.main,
-      format: "cjs",
-      exports: "named",
-      sourcemap: true
-    },
-    {
-      file: pkg.module,
-      format: "es",
-      exports: "named",
-      sourcemap: true
-    }
-  ],
-  plugins: [
-    vue(),
-    external(),
-    url(),
-    svgr(),
-    includePaths(includePathOptions),
-    resolve(),
-    alias({
-      entries: [
-        {
-          find: "@style",
-          replacement: path.resolve(__dirname, "src/assets/scss/")
-        }
-      ]
-    }),
-    postcss({
-      extract: false
-    }),
-    commonjs(),
-    terser(),
-    copy({
-      targets: [{ src: "./src/assets/", dest: "./dist" }]
-    })
-  ]
+	input: "src/components/index.js",
+	output: [
+		{
+			file: pkg.main,
+			format: "cjs",
+			exports: "named",
+			sourcemap: true
+		},
+		{
+			file: pkg.module,
+			format: "es",
+			exports: "named",
+			sourcemap: true
+		}
+	],
+	plugins: [
+		vue({
+			style: {
+				preprocessOptions: {
+					scss: {
+						includePaths: ["node_modules/", "src/", "src/assets/scss/"],
+						importer(path) {
+							return { file: path[0] !== "~" ? path : path.slice(1) };
+						}
+					}
+				}
+			}
+		}),
+		external(),
+		url(),
+		svgr(),
+		includePaths(includePathOptions),
+		resolve(),
+		alias({
+			resolve: [".jsx", ".js", ".vue", ".scss"], //optional, by default this will just look for .js files or folders
+			entries: [
+				{
+					find: "base",
+					replacement: path.resolve(__dirname, "src/assets/scss/base.scss")
+				}
+			]
+		}),
+		postcss({
+			extract: false
+		}),
+		commonjs(),
+		terser(),
+		copy({
+			targets: [{ src: "./src/assets/", dest: "./dist" }]
+		})
+	]
 };

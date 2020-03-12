@@ -4,7 +4,8 @@
 		:instructions="instructions"
 		:focus="focus"
 		:fieldID="ID"
-		:inline="inline"
+		:inline="inline",
+		:small="small"
 	>
 		<div class="input-field__input">
 			<input

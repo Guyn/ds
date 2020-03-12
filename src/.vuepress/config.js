@@ -1,7 +1,7 @@
 const path = require("path");
 console.log(path.resolve(__dirname, "../assets/scss/base.scss"));
 module.exports = {
-	dest: "dist",
+	dest: "public",
 	themeConfig: {
 		sidebar: [
 			{
@@ -28,7 +28,7 @@ module.exports = {
 						children: [
 							"components/general/Button/",
 							"components/general/Notification/",
-							"components/general/Modal/"
+							"components/general/Loading/"
 						]
 					},
 					{
@@ -48,6 +48,16 @@ module.exports = {
 							"components/forms/InputText/",
 							"components/forms/TextArea/",
 							"components/forms/OptionGroup/"
+						]
+					},
+					{
+						title: "Interactive",
+						collapsable: false,
+						path: "/components/interactive/",
+						children: [
+							"components/interactive/Accordion/",
+							"components/interactive/Modal/",
+							"components/interactive/Slider/"
 						]
 					},
 					{

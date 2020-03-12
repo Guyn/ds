@@ -4,6 +4,9 @@
 	"description": "Guyn Design System",
 	"author": "Sil van Diepen",
 	"license": "MIT",
+	"files": [
+		"dist/"
+	],
 	"bugs": {
 		"url": "https://github.com/silvandiepen/guyn-ds/issues"
 	},
@@ -13,11 +16,11 @@
 	"scripts": {
 		"test": "test",
 		"dev": "vuepress dev src",
-		"build": "npm run components:build && npm run build:docs",
+		"build": "npm run build:components && npm run build:docs",
 		"build:docs": "vuepress build src",
 		"build:icons": "sh scripts/icons.sh",
 		"build:colors": "sh scripts/colors.sh",
-		"components:build": "rollup -c"
+		"build:components": "rollup -c"
 	},
 	"repository": {
 		"type": "git",
