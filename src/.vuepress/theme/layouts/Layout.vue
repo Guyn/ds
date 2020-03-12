@@ -10,10 +10,21 @@
 			<ToggleMenu :active="isSidebarOpen" @click.native="toggleSidebar" />
 			<h3 class="layout__header-title"><strong>Guyn</strong> Design System</h3>
 			<Logo class="logo" />
-			<ToggleSections :active="isSectionsOpen" @click.native="toggleSections" />
+			<ToggleSections :active="isSectionsOpen" @click.native="toggleSectionView" />
 		</div>
-		<div class="layout__sections">
-			Haiiii
+		<div
+			class="layout__sections"
+			:class="{ 'layout__sections--active': isSectionsOpen }"
+		>
+			<ul>
+				<li style="background-color: var(--color-orange)">
+					<a>Color</a>
+				</li>
+				<li style="background-color: var(--color-red)"><a>Tools</a></li>
+				<li style="background-color: var(--color-skyblue)"><a>DS</a></li>
+				<li style="background-color: var(--color-turquoise)"><a>Convert</a></li>
+				<li style="background-color: var(--color-pink)"><a>Code</a></li>
+			</ul>
 		</div>
 		<div class="layout__left" :class="{ 'layout__left--active': isSidebarOpen }">
 			<Sidebar :items="sidebarItems" @toggle-sidebar="toggleSidebar">
@@ -129,9 +140,13 @@ export default {
 	},
 
 	methods: {
-		toggleSidebar(to) {
+		toggleSidebar() {
 			this.isSidebarOpen = !this.isSidebarOpen;
 			this.$emit("toggle-sidebar", this.isSidebarOpen);
+		},
+		toggleSectionView() {
+			this.isSectionsOpen = !this.isSectionsOpen;
+			this.$emit("toggle-sections", this.isSectionsOpen);
 		},
 
 		// side swipe
@@ -202,6 +217,47 @@ export default {
 			font-size: 1rem;
 			font-weight: normal;
 			line-height: 3rem;
+		}
+	}
+	.layout__sections {
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		border-radius: $base-border-radius * 2;
+		width: 80vmin;
+		height: 80vmin;
+		box-shadow: 0 0 12vw 0 setLightness(--base-color-light, 50),
+			0 -4px 0 0 setLightness(--base-color-light, 80) inset;
+		z-index: 100;
+		padding: 0.5em;
+		background-color: var(--base-color-light);
+		z-index: 10;
+		transform: scale(0.5);
+		opacity: 0;
+		pointer-events: none;
+		transition: transform $base-transition-bounce;
+		&--open {
+			transform: scale(1);
+			opacity: 0;
+		}
+		ul {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			grid-template-rows: repeat(3, 1fr);
+			flex-wrap: wrap;
+			grid-gap: 0.5em;
+			height: 100%;
+
+			li {
+				border-radius: $base-border-radius;
+				display: block;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				text-align: center;
+				font-size: 3vw;
+			}
 		}
 	}
 	.layout__left {
