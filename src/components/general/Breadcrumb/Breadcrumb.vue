@@ -1,5 +1,6 @@
 <template>
 	<div class="breadcrumb">
+		<ul class="breadcrumb__list"></ul>
 		<slots></slots>
 	</div>
 </template>

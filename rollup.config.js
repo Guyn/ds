@@ -46,7 +46,7 @@ export default {
 					scss: {
 						includePaths: ["node_modules/", "src/", "src/assets/scss/"],
 						importer(path) {
-							return { file: path[0] !== "~" ? path : path.slice(1) };
+							return { file: path[0] !== "@" ? path : path.slice(1) };
 						}
 					}
 				}
