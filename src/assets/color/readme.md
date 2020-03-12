@@ -30,8 +30,16 @@ export default {
 /* @import 'base'; */
 .color-block{   
     &__overview{
-        display: flex; 
+        display: grid;
+        /* grid-template-columns: repeat(3,1fr);  */ 
+        grid-template-columns: repeat(4,1fr);
+       
+        grid-gap: 1em;
         flex-wrap: wrap;
+        @media screen and (max-width: 960px){
+ grid-template-columns: repeat(3,1fr);
+       
+        }
     }
     &__block{
         padding: var(--base-padding, 1em); 
@@ -39,11 +47,15 @@ export default {
         color: transparent;
         /* background: var(--background-color) */
     }
-    &__item{  padding: var(--base-padding, 1em); margin: var(--base-margin, 0.5em);} 
+    &__item{  
+        /* padding: var(--base-padding, 1em);  */
+    /* margin: var(--base-margin, 0.5em);*/
+    }  
     &__value{
         opacity: 0.5;
     }
-    &__description{ padding: var(--base-padding, 1em); 
+    &__description{ 
+        padding: var(--base-padding, 1em) 0; 
     }
 }
 </style>
