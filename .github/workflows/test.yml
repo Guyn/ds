@@ -31,8 +31,8 @@ jobs:
       run: npm run stylelint
       
     # Run Build Docs
-    - name: Build Docs
-      run: npm run build:docs
+    - name: Build Components
+      run: npm run build:components
       
     # Run Build Docs
     - name: Build Docs
