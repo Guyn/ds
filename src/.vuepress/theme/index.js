@@ -1,6 +1,6 @@
 const path = require("path");
 
-// Theme API.
+// Theme API
 module.exports = (options, ctx) => {
 	const { themeConfig, siteConfig } = ctx;
 
