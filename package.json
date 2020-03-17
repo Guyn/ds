@@ -36,7 +36,8 @@
 	"keywords": [
 		"Design",
 		"System",
-		"Guyn"
+		"Guyn",
+		"Vue"
 	],
 	"dependencies": {
 		"guyn": "0.0.13",
