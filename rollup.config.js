@@ -9,12 +9,11 @@ import postcss from "rollup-plugin-postcss";
 import commonjs from "@rollup/plugin-commonjs";
 import { terser } from "rollup-plugin-terser";
 import copy from "rollup-plugin-copy";
+import buble from "rollup-plugin-buble";
 import includePaths from "rollup-plugin-includepaths";
 
 import pkg from "./package.json";
 import path from "path";
-
-console.log(path.resolve(__dirname, "/src/assets/scss/base.scss"));
 
 const includePathOptions = {
 	include: {},
@@ -28,19 +27,36 @@ export default {
 	output: [
 		{
 			file: pkg.main,
+			format: "umd",
+			exports: "named",
+			sourcemap: true,
+			name: "Guyn"
+		},
+		{
+			file: pkg.cjs,
 			format: "cjs",
 			exports: "named",
-			sourcemap: true
+			sourcemap: true,
+			name: "Guyn"
 		},
 		{
 			file: pkg.module,
 			format: "es",
 			exports: "named",
 			sourcemap: true
+		},
+		{
+			file: pkg.unpkg,
+			format: "iife",
+			exports: "named",
+			sourcemap: true,
+			name: "Guyn"
 		}
 	],
 	plugins: [
 		vue({
+			compileTemplate: true,
+			template: { optimizeSSR: true },
 			style: {
 				preprocessOptions: {
 					scss: {
@@ -73,6 +89,9 @@ export default {
 		terser(),
 		copy({
 			targets: [{ src: "./src/assets/", dest: "./dist" }]
+		}),
+		buble({
+			objectAssign: "Object.assign"
 		})
 	]
 };

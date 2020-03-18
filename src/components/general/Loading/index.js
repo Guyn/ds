@@ -1,1 +1,1 @@
-export { default } from "./Accordion.vue";
+export { default } from "./Loading.vue";

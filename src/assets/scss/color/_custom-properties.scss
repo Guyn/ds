@@ -1,8 +1,11 @@
 :root {
 	@each $color-name, $color-value in $colors {
-		@if type-of($color-value) != "color" and char-at($color-value, 1) == "#" {
+		@if type-of($color-value) != "color" and first-character($color-value) == "#"
+		{
 			$color-value: hexStringToRGB($color-value);
+			@debug $color-value;
 		}
+
 		--color-#{to-lower-case($color-name)}: #{$color-value};
 		--color-#{to-lower-case($color-name)}-h: #{hue($color-value)};
 		--color-#{to-lower-case($color-name)}-s: #{saturation($color-value)};
@@ -25,7 +28,8 @@ $base-color: (
 );
 :root {
 	@each $color-name, $color-value in $base-color {
-		@if type-of($color-value) != "color" and char-at($color-value, 1) == "#" {
+		@if type-of($color-value) != "color" and first-character($color-value) == "#"
+		{
 			$color-value: hexStringToRGB($color-value);
 		}
 		--base-color-#{to-lower-case($color-name)}: #{$color-value};
